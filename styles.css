@@ -62,3 +62,17 @@ body {
   border-radius: 10px;
 }
 
+.header {
+
+  text-align: justify;
+  padding: 15px;
+  text-align: center;
+  background: black;
+  color: white;
+  font-size: 10px; 
+  left:20px; 
+  background-color: grey;
+  position:inherit;
+
+
+}
