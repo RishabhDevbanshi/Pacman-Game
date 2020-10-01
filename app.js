@@ -52,11 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
       //add layout to the board
       if(layout[i] === 0) {
         squares[i].classList.add('pac-dot')
-      } else if (layout[i] === 1) {
+      } 
+      else if (layout[i] === 1) {
         squares[i].classList.add('wall')
-      } else if (layout[i] === 2) {
+      } 
+      else if (layout[i] === 2) {
         squares[i].classList.add('ghost-lair')
-      } else if (layout[i] === 3) {
+      } 
+      else if (layout[i] === 3) {
         squares[i].classList.add('power-pellet')
       }
     }
@@ -89,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (squares[pacmanCurrentIndex -1] === squares[363]) {
           pacmanCurrentIndex = 391
         }
-        break
+        break;
       case 38:
         if(
           pacmanCurrentIndex - width >= 0 &&
@@ -97,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
           !squares[pacmanCurrentIndex -width].classList.contains('ghost-lair')
           )
         pacmanCurrentIndex -= width
-        break
+        break;
       case 39:
         if(
           pacmanCurrentIndex % width < width - 1 &&
@@ -108,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (squares[pacmanCurrentIndex +1] === squares[392]) {
           pacmanCurrentIndex = 364
         }
-        break
+        break;
       case 40:
         if (
           pacmanCurrentIndex + width < width * width &&
@@ -116,13 +119,13 @@ document.addEventListener('DOMContentLoaded', () => {
           !squares[pacmanCurrentIndex +width].classList.contains('ghost-lair')
         )
         pacmanCurrentIndex += width
-        break
+        break;
     }
     squares[pacmanCurrentIndex].classList.add('pac-man')
-    pacDotEaten()
-    powerPelletEaten()
-    checkForGameOver()
-    checkForWin()
+    pacDotEaten();
+    powerPelletEaten();
+    checkForGameOver();
+    checkForWin();
   }
   document.addEventListener('keyup', movePacman)
 
