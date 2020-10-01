@@ -1,13 +1,30 @@
 body {
   background-color: grey;
+  margin: -132px 0px 0px 511px;
 }
 
+h3{
+  font-size: 37px;
+}
+.pacman{
+  padding-left: 182px;
+}
+.img{
+  width: 180px;
+  height: 180px;
+  transform: translate(-357px, 466px);
+}
+.ght{
+  width: 179px;
+    height: 180px;
+    transform: translate(624px, 463px);
+}
 .grid{
   display: flex;
   flex-wrap: wrap;
   width: 560px;
   height: 560px;
-  border: solid black;
+  border: 20px solid black;
 }
 
 .grid div {
