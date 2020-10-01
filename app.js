@@ -73,6 +73,18 @@ document.addEventListener('DOMContentLoaded', () => {
   //   return [index % width, Math.floor(index / width)]
   // }
 
+  //eye element
+  const eye = document.createElement('div')
+  eye.classList.add('pacman-eye')
+
+  //mouth element
+  const mouth = document.createElement('div')
+  mouth.classList.add('pacman-mouth')
+
+  //add eye and mouth to pacman
+  squares[pacmanCurrentIndex].appendChild(eye)
+  squares[pacmanCurrentIndex].appendChild(mouth)
+
   // console.log(getCoordinates(pacmanCurrentIndex))
 
   //move pacman
@@ -119,6 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
         break
     }
     squares[pacmanCurrentIndex].classList.add('pac-man')
+    squares[pacmanCurrentIndex].appendChild(eye)
+    squares[pacmanCurrentIndex].appendChild(mouth)
     pacDotEaten()
     powerPelletEaten()
     checkForGameOver()
