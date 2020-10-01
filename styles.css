@@ -1,5 +1,7 @@
 body {
   background-color: grey;
+  display: grid;
+  grid-template-columns: 560px 100px;
 }
 
 .grid{
@@ -63,7 +65,7 @@ body {
 }
 
 .onscreen-btns {
-  width: 560px;
+  align-self: center;
   text-align: center;
 }
 
