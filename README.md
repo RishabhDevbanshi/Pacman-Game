@@ -15,8 +15,12 @@ git clone https://github.com/RishabhDevbanshi/Pacman-Game.git
 ```
 
 ## How to play
-
-Move Pacman using arrow keys and stay away from the colored ghosts.
+<ul>
+<li>You are the pacman with color <b>yellow</b>.</li>
+<li>Move Pacman using arrow keys.</li>
+<li>Stay away from the colored ghosts. If your pacman comes in contact with colored ghost, the game ends</li>
+<li>Cover the green balls</li>
+<ul>
 
 ## Contributing
 
