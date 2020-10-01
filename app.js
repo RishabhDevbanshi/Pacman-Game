@@ -50,15 +50,20 @@ document.addEventListener('DOMContentLoaded', () => {
       squares.push(square)
 
       //add layout to the board
-      if(layout[i] === 0) {
-        squares[i].classList.add('pac-dot')
-      } else if (layout[i] === 1) {
-        squares[i].classList.add('wall')
-      } else if (layout[i] === 2) {
-        squares[i].classList.add('ghost-lair')
-      } else if (layout[i] === 3) {
-        squares[i].classList.add('power-pellet')
-      }
+      switch (layout[i]) {
+            case 0:
+                squares[i].classList.add('pac-dot');
+                break;
+            case 1:
+                squares[i].classList.add('wall')
+                break;
+            case 2:
+                squares[i].classList.add('ghost-lair')
+                break;
+            case 3:
+                squares[i].classList.add('power-pellet')
+                break;
+        }
     }
   }
   createBoard()
