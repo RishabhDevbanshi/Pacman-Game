@@ -1,13 +1,19 @@
+:root {
+  --dark-color: #12121f;
+  --yellow-color: #ffc93c;
+  --blue-color: #0724C6;
+  --default-radios: 0.625rem;
+}
+
 body {
-  background-color: grey;
+  background-color: var(--dark-color);
 }
 
 .grid{
   display: flex;
   flex-wrap: wrap;
-  width: 560px;
-  height: 560px;
-  border: solid black;
+  width: 35rem;
+  height: 35rem;
 }
 
 .grid div {
@@ -15,50 +21,60 @@ body {
   height: 20px;
 }
 
-.power-pellet{
-  background-color: green;
-  border-radius: 10px;
+.power-pellet {
+  background: url("./images/pixel-fruit-apple-128x128.png") no-repeat center/cover;
 }
 
 .pac-dot {
-  background-color: green;
-  border: 5px solid grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5rem;
+  height: .25rem;
+  width: .25rem;
   box-sizing: border-box;
 }
 
-.blinky{
-  background-color: red;
+.pac-dot:after {
+  content: '';
+  width: .35rem;
+  height: .35rem;
+  background-color: var(--yellow-color);
+  display: block;
+  border-radius: var(--default-radios);
 }
 
-.stinky{
-  background-color: pink;
+.blinky {
+  background: url("./images/pixel-ghost-red-128x128.png") no-repeat center/cover;
 }
 
-.inky{
-  background-color: cyan;
+.stinky {
+  background: url("./images/pixel-ghost-pink-128x128.png") no-repeat center/cover;
 }
 
-.clyde{
-  background-color: orange;
+.inky {
+  background: url("./images/pixel-ghost-blue-128x128.png") no-repeat center/cover;
+}
+
+.clyde {
+  background: url("./images/pixel-ghost-orange-128x128.png") no-repeat center/cover;
 }
 
 .ghost{
-  border: 0px;
-  border-radius: 0px;
+  border: 0;
+  border-radius: 0;
 }
 
-.scared-ghost{
-  background-color: purple;
-  border: 0px;
-  border-radius: 0px;
+.scared-ghost {
+  background: url("./images/pixel-ghost-chase-128x128.png") no-repeat center/cover;
 }
 
-.wall{
-  background-color: blue;
+.wall {
+  background-color: var(--blue-color);
 }
 
-.pac-man{
-  background-color: yellow;
+.pac-man {
+  background: url("./images/pixel-pac-man-72x72.png") no-repeat center/cover;
   border-radius: 10px;
 }
 
