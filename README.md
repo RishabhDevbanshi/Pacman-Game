@@ -8,7 +8,7 @@ PacmanJs is a Javascript, HTML and CSS based game that enable you to play with t
 
 ## Installation/Execute
 
-Clone the repository and open index.html on your web browser:
+Clone the repository and run index.html on your web browser:
 
 ```
 git clone https://github.com/RishabhDevbanshi/Pacman-Game.git
