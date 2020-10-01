@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkForGameOver()
     checkForWin()
   }
-  document.addEventListener('keyup', movePacman)
+  document.addEventListener('keydown', movePacman)
 
   // what happens when you eat a pac-dot
   function pacDotEaten() {
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (squares[pacmanCurrentIndex].classList.contains('ghost') &&
       !squares[pacmanCurrentIndex].classList.contains('scared-ghost')) {
       ghosts.forEach(ghost => clearInterval(ghost.timerId))
-      document.removeEventListener('keyup', movePacman)
+      document.removeEventListener('keydown', movePacman)
       setTimeout(function(){ alert("Game Over"); }, 500)
     }
   }
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function checkForWin() {
     if (score === 274) {
       ghosts.forEach(ghost => clearInterval(ghost.timerId))
-      document.removeEventListener('keyup', movePacman)
+      document.removeEventListener('keydown', movePacman)
       setTimeout(function(){ alert("You have WON!"); }, 500)
     }
   }
