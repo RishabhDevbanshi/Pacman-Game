@@ -2,12 +2,33 @@ body {
   background-color: grey;
 }
 
+.container{
+  margin: 10px auto;
+}
+
+.heading{
+  margin-top: auto;
+  margin-left: 42%;
+  font-family: sans;
+  font-weight: bold;
+  font-size: 4rem;
+  color: aliceblue;
+
+}
+
+h3{
+  margin-left: 48%;
+  color: white;
+}
+
 .grid{
   display: flex;
   flex-wrap: wrap;
   width: 560px;
   height: 560px;
   border: solid black;
+  margin: 10px auto;
+  
 }
 
 .grid div {
@@ -21,7 +42,7 @@ body {
 }
 
 .pac-dot {
-  background-color: green;
+  background-color: rgba(255, 255, 23, 0.945);
   border: 5px solid grey;
   box-sizing: border-box;
 }
@@ -41,6 +62,15 @@ body {
 .clyde{
   background-color: orange;
 }
+.citre{
+  background-color: black;
+}
+.mander{
+  background-color: brown;
+}
+.denif{
+  background-color: chartreuse;
+}
 
 .ghost{
   border: 0px;
@@ -54,7 +84,7 @@ body {
 }
 
 .wall{
-  background-color: blue;
+  background-color: rgb(36, 36, 134);
 }
 
 .pac-man{
