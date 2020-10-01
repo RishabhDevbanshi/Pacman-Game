@@ -1,13 +1,16 @@
 body {
-  background-color: grey;
+  background-color:black;
 }
 
 .grid{
+  margin-top: 2%;
+  margin-left: auto;
+margin-right: auto;
   display: flex;
   flex-wrap: wrap;
   width: 560px;
   height: 560px;
-  border: solid black;
+  border: 0.2px solid rgb(1, 17, 17);
 }
 
 .grid div {
@@ -16,14 +19,15 @@ body {
 }
 
 .power-pellet{
-  background-color: green;
+  background-color: rgb(14, 233, 14);
   border-radius: 10px;
 }
 
 .pac-dot {
   background-color: green;
-  border: 5px solid grey;
+  border: 3px solid rgb(194, 190, 190);
   box-sizing: border-box;
+  border-radius: 10px;
 }
 
 .blinky{
@@ -31,15 +35,15 @@ body {
 }
 
 .stinky{
-  background-color: pink;
+  background-color: rgb(221, 18, 130);
 }
 
 .inky{
-  background-color: cyan;
+  background-color: rgb(15, 214, 204);
 }
 
 .clyde{
-  background-color: orange;
+  background-color: rgb(243, 125, 78);
 }
 
 .ghost{
@@ -54,11 +58,17 @@ body {
 }
 
 .wall{
-  background-color: blue;
+  background-color: rgb(8, 14, 102);
 }
 
 .pac-man{
-  background-color: yellow;
+  background-color: rgb(247, 232, 22);
   border-radius: 10px;
+}
+h2{
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+
 }
 
