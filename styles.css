@@ -1,13 +1,41 @@
-body {
-  background-color: grey;
+/* Removes default body margin*/
+*{
+	margin:0;
 }
+
+body {
+  background-color: rgba(10,10,10,0.3);
+}
+
+.upper-row-layout{
+	width:100vw;
+	height:100vh;
+	display:grid;
+	grid-template-columns:repeat(2,1fr);/*100vw calc(100vw-560px); */
+}
+
+
 
 .grid{
   display: flex;
   flex-wrap: wrap;
   width: 560px;
   height: 560px;
-  border: solid black;
+  border: 8px inset black;
+  border-radius:20px;
+}
+
+.grid:hover
+{
+	box-shadow:5px 2px 4px 2px grey;
+	transition:box-shadow 150ms ease-in-out;
+	cursor:pointer;
+}
+
+.grid:active
+{
+	box-shadow:5px 2px 4px 2px grey inset;
+	transition:box-shadow 200ms ease-in-out;
 }
 
 .grid div {
@@ -22,24 +50,28 @@ body {
 
 .pac-dot {
   background-color: green;
-  border: 5px solid grey;
+  border: 5px solid rgba(255,255,255,0.69);
   box-sizing: border-box;
 }
 
 .blinky{
-  background-color: red;
+  background: radial-gradient(circle,rgba(255,210,10,0.2),rgba(255,10,10,0.5),rgba(255,10,10,0.9));
+  /* Adds the reddish color */
 }
 
 .stinky{
-  background-color: pink;
+  background: radial-gradient(circle,rgba(255,250,203,0.3),rgba(255,50,203,0.7),rgba(255,20,183,0.9));
+  /* Adds the pinkish color*/
 }
 
 .inky{
-  background-color: cyan;
+  background: radial-gradient(circle,rgba(10,250,220,0.3),rgba(10,20,220,0.9));
+  /*Adds the blueish color*/
 }
 
 .clyde{
-  background-color: orange;
+  background: radial-gradient(rgba(255,242,220,0.3),rgba(255,142,20,0.6),rgba(255,122,0,0.9));
+  /* Adds the orange color */
 }
 
 .ghost{
@@ -48,17 +80,74 @@ body {
 }
 
 .scared-ghost{
-  background-color: purple;
+  /*background-color: purple;
   border: 0px;
-  border-radius: 0px;
+  border-radius: 0px;*/
+  
+  
+  /* Start the shake animation and make the animation last for 300 milliseconds */
+  animation: shake 300ms;
 }
 
+/* Animation for shaking the scared-ghost*/
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
 .wall{
-  background-color: blue;
+  background: linear-gradient(to right,rgba(20,20,255,0.2),rgba(20,20,255,0.9));
 }
 
 .pac-man{
-  background-color: yellow;
+  background: radial-gradient(rgba(20,20,20,0.2),rgba(20,20,20,0.9));
   border-radius: 10px;
 }
 
+.pac-man:hover
+{
+	box-shadow:1.5px 1.5px 1px 1px grey;
+	transition:box-shadow 100ms ease-in-out;
+	cursor:pointer;
+}
+
+/* Styling for the box conatining score*/
+
+.score-box
+{
+	margin:5px;
+	height:1.4em;
+	width:5em;
+	background:radial-gradient(#faf58c,#49a44c);
+	border:2px black inset;
+	box-shadow:1px 1px 2px 1px rgba(20,10,20,0.8);
+	
+	padding:5px;
+	border-radius:20%;
+	font-size:20px;
+	font-weight:500;
+	user-select:none;
+}
+
+.score-box:hover
+{
+	box-shadow:2px 2px 2px 1px grey;
+	transition:box-shadow 100ms ease-in-out;
+	cursor:pointer;
+}
+
+.score-box:active
+{
+	box-shadow:0px 1px 1px 1px grey inset;
+	transition:box-shadow 180ms ease-in-out;
+}
