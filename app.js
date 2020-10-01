@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let direction = directions[Math.floor(Math.random() * directions.length)]
 
     ghost.timerId = setInterval(function() {
-      //if the next squre your ghost is going to go to does not have a ghost and does not have a wall
+      //if the next square your ghost is going to go to does not have a ghost and does not have a wall
       if  (!squares[ghost.currentIndex + direction].classList.contains('ghost') &&
         !squares[ghost.currentIndex + direction].classList.contains('wall') ) {
           //remove the ghosts classes
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
           //move into that space
           ghost.currentIndex += direction
           squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
-      //else find a new random direction ot go in
+      //else find a new random direction to go in
       } else direction = directions[Math.floor(Math.random() * directions.length)]
 
       //if the ghost is currently scared
