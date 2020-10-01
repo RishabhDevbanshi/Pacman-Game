@@ -2,7 +2,7 @@ body {
   background-color: grey;
 }
 
-.grid{
+.grid {
   display: flex;
   flex-wrap: wrap;
   width: 560px;
@@ -15,50 +15,63 @@ body {
   height: 20px;
 }
 
-.power-pellet{
-  background-color: green;
+.power-pellet {
+  background-color: #dea185;
   border-radius: 10px;
+  opacity: 0;
+  animation: animation 1s infinite;
 }
 
 .pac-dot {
-  background-color: green;
+  background-color: #dea185;
   border: 5px solid grey;
   box-sizing: border-box;
 }
 
-.blinky{
-  background-color: red;
+.blinky {
+  background-color: #fd0000;
 }
 
-.stinky{
-  background-color: pink;
+.stinky {
+  background-color: #ffb8ff;
 }
 
-.inky{
-  background-color: cyan;
+.inky {
+  background-color: #00ffff;
 }
 
-.clyde{
-  background-color: orange;
+.clyde {
+  background-color: #ffb852;
 }
 
-.ghost{
+.ghost {
   border: 0px;
   border-radius: 0px;
 }
 
-.scared-ghost{
+.scared-ghost {
   background-color: purple;
   border: 0px;
   border-radius: 0px;
 }
 
-.wall{
-  background-color: blue;
+.wall {
+  background-color: #1919a6;
 }
 
-.pac-man{
-  background-color: yellow;
+.pac-man {
+  background-color: #ffff00;
   border-radius: 10px;
 }
 
+@keyframes animation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
