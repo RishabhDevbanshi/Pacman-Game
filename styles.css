@@ -1,5 +1,5 @@
 body {
-  background-color: grey;
+  background-color: white;
 }
 
 .grid{
@@ -13,33 +13,39 @@ body {
 .grid div {
   width: 20px;
   height: 20px;
+  /* width: 40px;
+  height: 40px; */
 }
 
 .power-pellet{
-  background-color: green;
+  background-color: burlywood;
   border-radius: 10px;
 }
 
 .pac-dot {
-  background-color: green;
-  border: 5px solid grey;
+  background-color: royalblue;
+  border: 5px solid white;
   box-sizing: border-box;
 }
 
 .blinky{
-  background-color: red;
+  /* background-color: red; */
+  background-image: url("villan.png");
 }
 
 .stinky{
-  background-color: pink;
+  /* background-color: pink; */
+  background-image: url("villan.png");
 }
 
 .inky{
-  background-color: cyan;
+  /* background-color: cyan; */
+  background-image: url("villan.png");
 }
 
 .clyde{
-  background-color: orange;
+  /* background-color: orange; */
+  background-image: url("villan.png");
 }
 
 .ghost{
@@ -54,11 +60,58 @@ body {
 }
 
 .wall{
-  background-color: blue;
+  /* background-color: blue; */
+  background-image: url("brick.jpg");
 }
 
 .pac-man{
-  background-color: yellow;
-  border-radius: 10px;
+  /* background-color: yellow; */
+  background-image:url("pacman1.png");
+  /* border-radius: 10px; */
+
 }
+.moon{
+  position: absolute;
+  width: 454px;
+  height: 435px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  top: 55%;
+  left: 65%;
+  transform: translate(-50%,-50%);
+  background: #d8d8d8;
+  box-shadow: inset 15px 15px 10px #999;
+}
+.monster{
+  position: absolute;
+  top: 55%;
+  left: 65%;
+  background: transparent url("monster.png") 0 0 no-repeat;
+  width: 502px;
+  height: 510px;
+  transform: translate(-56%,-50%);
+ animation: run 1s steps(21) infinite;
+
+}
+.heading{
+font-size: 50px;
+color: brown;
+margin-top: 0%;
+padding-top: 0%;
+font-family: Georgia, 'Times New Roman', Times, serif;
+text-align: center;
+
+
+
+
+
+}
+#score{
+margin-top: 0%;
+padding-top: 0%;
+text-align: center;
+
+
+}
+
 
