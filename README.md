@@ -1,34 +1,30 @@
 # PacmanJs
 
-PacmanJs is a Javascript, HTML and Css based game that enable you to play with the most carismatic 80's character ever created.
+PacmanJs is a Javascript, HTML and CSS based game that enable you to play with the most carismatic 80's character ever created.
 
-## Installation/Execute
+## How to start
 
-Just clone the repository and run the game setting start index.html on terminal:
-
+Clone the repository and open index.html on your web browser:
 
 ```
 git clone https://github.com/RishabhDevbanshi/Pacman-Game.git
-cd Pacman-game
-start index.html
-
 ```
 
 ## How to play
 
-Move Pacman using directional arrows and stay way from the colored ghosts.
-
+Move Pacman using arrow keys and stay away from the colored ghosts.
 
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update tests as appropriate.
+Please make sure to update the tests if needed.
 
 ## License
 
 PAC-MAN is a trademark of BANDAI NAMCO ENTERTAINMENT INC.
-This game is developed under reasons of study only.
+This game is developed for educational purpose only.
 
 ## Support
- Don't forget to give this Repository a star ! 
+
+Don't forget to give this repository a star ! 
