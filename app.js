@@ -85,49 +85,57 @@ document.addEventListener('DOMContentLoaded', () => {
   squares[pacmanCurrentIndex].appendChild(eye)
   squares[pacmanCurrentIndex].appendChild(mouth)
 
+  //first mouth position
+
   // console.log(getCoordinates(pacmanCurrentIndex))
 
   //move pacman
   function movePacman(e) {
     squares[pacmanCurrentIndex].classList.remove('pac-man')
     switch(e.keyCode) {
-      case 37:
+      case 37: //left key
         if(
           pacmanCurrentIndex % width !== 0 &&
           !squares[pacmanCurrentIndex -1].classList.contains('wall') &&
           !squares[pacmanCurrentIndex -1].classList.contains('ghost-lair')
           )
         pacmanCurrentIndex -= 1
+        mouth.style.transform = "rotate(180deg)";
         if (squares[pacmanCurrentIndex -1] === squares[363]) {
           pacmanCurrentIndex = 391
         }
         break
-      case 38:
+      case 38: //up key
         if(
           pacmanCurrentIndex - width >= 0 &&
           !squares[pacmanCurrentIndex -width].classList.contains('wall') &&
           !squares[pacmanCurrentIndex -width].classList.contains('ghost-lair')
           )
         pacmanCurrentIndex -= width
+        mouth.style.top = "0px";
+        mouth.style.transform = "rotate(-90deg)";
         break
-      case 39:
+      case 39: //right key
         if(
           pacmanCurrentIndex % width < width - 1 &&
           !squares[pacmanCurrentIndex +1].classList.contains('wall') &&
           !squares[pacmanCurrentIndex +1].classList.contains('ghost-lair')
         )
         pacmanCurrentIndex += 1
+        mouth.style.top = "2px";
+        mouth.style.transform = "rotate(0deg)";
         if (squares[pacmanCurrentIndex +1] === squares[392]) {
           pacmanCurrentIndex = 364
         }
         break
-      case 40:
+      case 40: //down
         if (
           pacmanCurrentIndex + width < width * width &&
           !squares[pacmanCurrentIndex +width].classList.contains('wall') &&
           !squares[pacmanCurrentIndex +width].classList.contains('ghost-lair')
         )
         pacmanCurrentIndex += width
+        mouth.style.transform = "rotate(90deg)";
         break
     }
     squares[pacmanCurrentIndex].classList.add('pac-man')
