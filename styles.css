@@ -1,5 +1,5 @@
 body {
-  background-color: grey;
+  background-color:black;
 }
 
 .grid{
@@ -16,30 +16,31 @@ body {
 }
 
 .power-pellet{
-  background-color: green;
-  border-radius: 10px;
+  background-color: white;
+  border-radius: 8px;
 }
 
 .pac-dot {
-  background-color: green;
-  border: 5px solid grey;
+  background-color: white;
+  border: 5px solid black;
+  border-radius: 10px;
   box-sizing: border-box;
 }
 
 .blinky{
-  background-color: red;
+  background-image: url(blinky.gif);
 }
 
 .stinky{
-  background-color: pink;
+  background-image: url(stinky.gif);
 }
 
 .inky{
-  background-color: cyan;
+  background-image: url(inky.gif);
 }
 
 .clyde{
-  background-color: orange;
+  background-image: url(clyde.gif);
 }
 
 .ghost{
@@ -55,10 +56,12 @@ body {
 
 .wall{
   background-color: blue;
+  border-radius: 1px;
 }
 
 .pac-man{
-  background-color: yellow;
+  background-image: url(pacman.gif);
   border-radius: 10px;
+
 }
 
