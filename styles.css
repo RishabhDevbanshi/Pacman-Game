@@ -15,29 +15,9 @@ body {
   height: 20px;
 }
 
-.blinky{
-  background-color: red;
-  border: 0px;
-}
-
-.stinky{
-  background-color: pink;
-  border: 0px;
-}
-
-.inky{
-  background-color: cyan;
-  border: 0px;
-}
-
-.clyde{
-  background-color: orange;
-  border: 0px;
-}
-
-.scared-ghost{
-  background-color: purple;
-  border: 0px;
+.power-pellet{
+  background-color: green;
+  border-radius: 10px;
 }
 
 .pac-dot {
@@ -46,16 +26,39 @@ body {
   box-sizing: border-box;
 }
 
-.wall{
-  background-color: blue;
+.blinky{
+  background-color: red;
 }
 
-.power-pellet{
-  background-color: green;
-  border-radius: 10px;
+.stinky{
+  background-color: pink;
+}
+
+.inky{
+  background-color: cyan;
+}
+
+.clyde{
+  background-color: orange;
+}
+
+.ghost{
+  border: 0px;
+  border-radius: 0px;
+}
+
+.scared-ghost{
+  background-color: purple;
+  border: 0px;
+  border-radius: 0px;
+}
+
+.wall{
+  background-color: blue;
 }
 
 .pac-man{
   background-color: yellow;
   border-radius: 10px;
 }
+
