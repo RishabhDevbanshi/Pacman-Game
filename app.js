@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkForGameOver()
     checkForWin()
   }
-  document.addEventListener('keyup', movePacman)
+  document.addEventListener('keydown', movePacman)
 
   // what happens when you eat a pac-dot
   function pacDotEaten() {
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (squares[pacmanCurrentIndex].classList.contains('power-pellet')) {
       score +=10
       ghosts.forEach(ghost => ghost.isScared = true)
-      setTimeout(unScareGhosts, 10000)
+      setTimeout(unScareGhosts, 5000)
       squares[pacmanCurrentIndex].classList.remove('power-pellet')
     }
   }
@@ -164,10 +164,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //all my ghosts
   ghosts = [
-    new Ghost('blinky', 348, 100),
-    new Ghost('stinky', 376, 400),
-    new Ghost('inky', 351, 300),
-    new Ghost('clyde', 379, 200)
+    new Ghost('blinky', 40, 100),
+    new Ghost('stinky', 156, 150),
+    new Ghost('inky', 200, 200),
+    new Ghost('clyde', 334, 250),
+    new Ghost('citre', 450, 300),
+    new Ghost('mander', 585, 350),
+    new Ghost('denif', 499, 300),
+    
+
     ]
 
   //draw my ghosts onto the grid
@@ -205,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if(ghost.isScared && squares[ghost.currentIndex].classList.contains('pac-man')) {
         squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost')
         ghost.currentIndex = ghost.startIndex
-        score +=100
+        score +=50
         squares[ghost.currentIndex].classList.add(ghost.className, 'ghost')
       }
     checkForGameOver()
@@ -217,17 +222,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (squares[pacmanCurrentIndex].classList.contains('ghost') &&
       !squares[pacmanCurrentIndex].classList.contains('scared-ghost')) {
       ghosts.forEach(ghost => clearInterval(ghost.timerId))
-      document.removeEventListener('keyup', movePacman)
-      setTimeout(function(){ alert("Game Over"); }, 500)
+      document.removeEventListener('keydown', movePacman)
+      setTimeout(function(){ alert("Game Over, Play Again ?"); window.location.reload() }, 500)
     }
   }
 
   //check for a win - more is when this score is reached
   function checkForWin() {
-    if (score === 274) {
+    if (score ===400) {
       ghosts.forEach(ghost => clearInterval(ghost.timerId))
-      document.removeEventListener('keyup', movePacman)
-      setTimeout(function(){ alert("You have WON!"); }, 500)
+      document.removeEventListener('keydown', movePacman)
+      setTimeout(function(){ alert("You have WON!");window.location.reload() }, 500)
     }
   }
 })
