@@ -2,7 +2,80 @@ body {
   background-color: grey;
 }
 
+.nav-btns {
+  width: unset !important;
+  height: unset !important;
+  display: flex;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);  
+}
+
+.nav-btn {
+  width: 50px !important; height: 50px !important;
+  position: relative;
+  background: rgba(0,0,0, .3);
+  cursor: pointer;
+}
+.nav-btn:hover {
+  background: rgba(0,0,0, .7);
+}
+.nav-btn:before {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 1px; height: 12px;
+  background: #fff;
+}
+.nav-btn:after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 1px; height: 12px;
+  background: #fff;
+}
+.nav-btn.up {
+  top: -30px;
+  left: 25px;
+}
+.nav-btn.up:after {
+  transform: translate(4px, -50%) rotate(-45deg);
+}
+.nav-btn.up:before {
+  transform: translate(-4px, -50%) rotate(45deg);
+}
+.nav-btn.down {
+  top: 30px;
+  left: -25px;
+}
+.nav-btn.down:after{
+  transform: translate(4px, -50%) rotate(45deg);
+}
+.nav-btn.down:before{
+  transform: translate(-4px, -50%) rotate(-45deg);
+}
+.nav-btn.left {
+  left: 25px;
+}
+.nav-btn.left:before {
+  transform: translate(0px, -15%) rotate(-45deg);
+}
+.nav-btn.left:after {
+  transform: translate(0px, -85%) rotate(45deg);
+}
+.nav-btn.right {
+  right: 25px;
+}
+.nav-btn.right:before {
+  transform: translate(0px, -85%) rotate(-45deg);
+}
+.nav-btn.right:after {
+  transform: translate(0px, -15%) rotate(45deg);
+}
+
 .grid{
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   width: 560px;
