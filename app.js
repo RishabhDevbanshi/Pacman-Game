@@ -273,6 +273,9 @@ document.addEventListener('DOMContentLoaded', () => {
       !squares[pacmanCurrentIndex].classList.contains('scared-ghost')) {
       ghosts.forEach(ghost => clearInterval(ghost.timerId))
       document.removeEventListener('keyup', movePacman)
+      navigationBtns.forEach(btn => {
+        btn.removeEventListener('click', movePacmanByButtons)
+      })
       setTimeout(function(){ alert("Game Over"); }, 500)
     }
   }
@@ -282,6 +285,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (score === 274) {
       ghosts.forEach(ghost => clearInterval(ghost.timerId))
       document.removeEventListener('keyup', movePacman)
+      navigationBtns.forEach(btn => {
+        btn.removeEventListener('click', movePacmanByButtons)
+      })
       setTimeout(function(){ alert("You have WON!"); }, 500)
     }
   }
