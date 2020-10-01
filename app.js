@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
           !squares[pacmanCurrentIndex -1].classList.contains('ghost-lair')
           )
         pacmanCurrentIndex -= 1
+        squares[pacmanCurrentIndex].classList.add('pac-man-left')
         if (squares[pacmanCurrentIndex -1] === squares[363]) {
           pacmanCurrentIndex = 391
         }
@@ -97,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
           !squares[pacmanCurrentIndex -width].classList.contains('ghost-lair')
           )
         pacmanCurrentIndex -= width
+        squares[pacmanCurrentIndex].classList.add('pac-man-up')
         break
       case 39:
         if(
@@ -116,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
           !squares[pacmanCurrentIndex +width].classList.contains('ghost-lair')
         )
         pacmanCurrentIndex += width
+        squares[pacmanCurrentIndex].classList.add('pac-man-down')
         break
     }
     squares[pacmanCurrentIndex].classList.add('pac-man')

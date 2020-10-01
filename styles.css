@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: grey;
 }
@@ -5,6 +10,7 @@ body {
 .grid{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   width: 560px;
   height: 560px;
   border: solid black;
@@ -27,19 +33,27 @@ body {
 }
 
 .blinky{
-  background-color: red;
+  background-image: url(./assets/ghostred.gif);
+  background-position: center;
+  background-size: contain;
 }
 
 .stinky{
-  background-color: pink;
+  background-image: url(./assets/ghostpink.gif);
+  background-position: center;
+  background-size: contain;
 }
 
 .inky{
-  background-color: cyan;
+  background-image: url(./assets/ghostblue.gif);
+  background-position: center;
+  background-size: contain;
 }
 
 .clyde{
-  background-color: orange;
+  background-image: url(./assets/ghostyellow.gif);
+  background-position: center;
+  background-size: contain;
 }
 
 .ghost{
@@ -58,7 +72,33 @@ body {
 }
 
 .pac-man{
-  background-color: yellow;
+  background-image: url(./assets/pacman.gif);
+  background-position: center;
+  background-size: contain;
   border-radius: 10px;
 }
 
+/* Game Container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.text-medium {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.pac-man-up {
+  transform: rotate(-90deg);
+}
+.pac-man-down {
+  transform: rotate(90deg);
+}
+.pac-man-left {
+  transform: rotate(180deg);
+  transform: scaleX(-1);
+}
