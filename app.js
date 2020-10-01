@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const squares = []
 
   //create your board
-  function createBoard() {
+  createBoard() => {
     for (let i = 0; i < layout.length; i++) {
       const square = document.createElement('div')
       grid.appendChild(square)
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // console.log(getCoordinates(pacmanCurrentIndex))
 
   //move pacman
-  function movePacman(e) {
+  movePacman(e) => {
     squares[pacmanCurrentIndex].classList.remove('pac-man')
     switch(e.keyCode) {
       case 37:
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keyup', movePacman)
 
   // what happens when you eat a pac-dot
-  function pacDotEaten() {
+  pacDotEaten() => {
     if (squares[pacmanCurrentIndex].classList.contains('pac-dot')) {
       score++
       scoreDisplay.innerHTML = score
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //what happens when you eat a power-pellet
-  function powerPelletEaten() {
+  powerPelletEaten() => {
     if (squares[pacmanCurrentIndex].classList.contains('power-pellet')) {
       score +=10
       ghosts.forEach(ghost => ghost.isScared = true)
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //make the ghosts stop flashing
-  function unScareGhosts() {
+  unScareGhosts() => {
     ghosts.forEach(ghost => ghost.isScared = false)
   }
 
@@ -179,11 +179,11 @@ document.addEventListener('DOMContentLoaded', () => {
   //move the Ghosts randomly
   ghosts.forEach(ghost => moveGhost(ghost))
 
-  function moveGhost(ghost) {
+  moveGhost(ghost) => {
     const directions =  [-1, +1, width, -width]
     let direction = directions[Math.floor(Math.random() * directions.length)]
 
-    ghost.timerId = setInterval(function() {
+    ghost.timerId = setInterval(() => {
       //if the next square your ghost is going to go to does not have a ghost and does not have a wall
       if  (!squares[ghost.currentIndex + direction].classList.contains('ghost') &&
         !squares[ghost.currentIndex + direction].classList.contains('wall') ) {
@@ -213,21 +213,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //check for a game over
-  function checkForGameOver() {
+checkForGameOver() => {
     if (squares[pacmanCurrentIndex].classList.contains('ghost') &&
       !squares[pacmanCurrentIndex].classList.contains('scared-ghost')) {
       ghosts.forEach(ghost => clearInterval(ghost.timerId))
       document.removeEventListener('keyup', movePacman)
-      setTimeout(function(){ alert("Game Over"); }, 500)
+      setTimeout(() => { alert("Game Over"); }, 500)
     }
   }
 
   //check for a win - more is when this score is reached
-  function checkForWin() {
+checkForWin() => {
     if (score === 274) {
       ghosts.forEach(ghost => clearInterval(ghost.timerId))
       document.removeEventListener('keyup', movePacman)
-      setTimeout(function(){ alert("You have WON!"); }, 500)
+      setTimeout(() => { alert("You have WON!"); }, 500)
     }
   }
 })
