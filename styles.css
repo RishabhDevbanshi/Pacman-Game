@@ -8,6 +8,7 @@ body {
   width: 560px;
   height: 560px;
   border: solid black;
+  margin: auto 20%;
 }
 
 .grid div {
@@ -16,12 +17,13 @@ body {
 }
 
 .power-pellet{
-  background-color: green;
+  background-color: #eae6c1;
   border-radius: 10px;
 }
 
 .pac-dot {
-  background-color: green;
+  background-color: #eae6c1;
+  border-radius: 15px;
   border: 5px solid grey;
   box-sizing: border-box;
 }
@@ -44,13 +46,13 @@ body {
 
 .ghost{
   border: 0px;
-  border-radius: 0px;
+  border-radius: 15px 15px 0px 0px;
 }
 
 .scared-ghost{
   background-color: purple;
   border: 0px;
-  border-radius: 0px;
+  border-radius: 15px 15px 0px 0px;
 }
 
 .wall{
