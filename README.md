@@ -1,4 +1,8 @@
 # [PacmanJs](https://rishabhdevbanshi.github.io/Pacman-Game/)
+<p>
+ <imgb src="https://1.bp.blogspot.com/-otldcPcnDLI/X3Y8xug0AUI/AAAAAAAAFwY/mpotaz7JHp4RHqZm_0_zlkbHI98z1-EtgCLcBGAsYHQ/s1280/My%2BPost%2B%252811%2529.jpg">
+ </p>
+
 
 PacmanJs is a Javascript, HTML and CSS based game that enable you to play with the most carismatic 80's character ever created.
 
