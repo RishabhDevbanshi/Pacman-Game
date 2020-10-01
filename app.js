@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkForGameOver()
     checkForWin()
   }
-  document.addEventListener('keyup', movePacman)
+  document.addEventListener('keydown', movePacman)
 
   // what happens when you eat a pac-dot
   function pacDotEaten() {

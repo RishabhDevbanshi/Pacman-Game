@@ -1,5 +1,7 @@
 body {
-  background-color: grey;
+  background-color: rgb(114, 151, 252);
+  justify-content: center;
+  display: grid;
 }
 
 .grid{
@@ -15,13 +17,18 @@ body {
   height: 20px;
 }
 
+.score{
+  font-size: 28px;
+  color: rgb(255, 253, 245);
+}
+
 .power-pellet{
-  background-color: green;
+  background-color: rgb(255, 228, 109);
   border-radius: 10px;
 }
 
 .pac-dot {
-  background-color: green;
+  background-color: rgb(48, 226, 116);
   border: 5px solid grey;
   box-sizing: border-box;
 }
@@ -43,8 +50,11 @@ body {
 }
 
 .ghost{
-  border: 0px;
-  border-radius: 0px;
+  background-image: url('ghost.png') !important;
+  width: 20px !important;
+  height: 20px !important;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .scared-ghost{
@@ -54,11 +64,13 @@ body {
 }
 
 .wall{
-  background-color: blue;
+  background-color: rgb(31, 91, 255);
 }
-
 .pac-man{
-  background-color: yellow;
-  border-radius: 10px;
+  background-image: url('hero-pacmanv1.png') !important;
+  width: 20px !important;
+  height: 20px !important;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
