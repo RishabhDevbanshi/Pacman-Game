@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const width = 28
   let score = 0
   const grid = document.querySelector('.grid')
+  const navigationBtns = document.querySelectorAll(".nav-btn")
   const layout = [
     1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
     1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,
@@ -126,6 +127,60 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   document.addEventListener('keyup', movePacman)
 
+  //move pacman using buttons on screen
+  function movePacmanByButtons(e) {
+    let direction = e.target.dataset.direction;
+    squares[pacmanCurrentIndex].classList.remove('pac-man')
+    switch(direction) {
+      case "left":
+        if(
+          pacmanCurrentIndex % width !== 0 &&
+          !squares[pacmanCurrentIndex -1].classList.contains('wall') &&
+          !squares[pacmanCurrentIndex -1].classList.contains('ghost-lair')
+          )
+        pacmanCurrentIndex -= 1
+        if (squares[pacmanCurrentIndex -1] === squares[363]) {
+          pacmanCurrentIndex = 391
+        }
+        break
+      case "up":
+        if(
+          pacmanCurrentIndex - width >= 0 &&
+          !squares[pacmanCurrentIndex -width].classList.contains('wall') &&
+          !squares[pacmanCurrentIndex -width].classList.contains('ghost-lair')
+          )
+        pacmanCurrentIndex -= width
+        break
+      case "right":
+        if(
+          pacmanCurrentIndex % width < width - 1 &&
+          !squares[pacmanCurrentIndex +1].classList.contains('wall') &&
+          !squares[pacmanCurrentIndex +1].classList.contains('ghost-lair')
+        )
+        pacmanCurrentIndex += 1
+        if (squares[pacmanCurrentIndex +1] === squares[392]) {
+          pacmanCurrentIndex = 364
+        }
+        break
+      case "down":
+        if (
+          pacmanCurrentIndex + width < width * width &&
+          !squares[pacmanCurrentIndex +width].classList.contains('wall') &&
+          !squares[pacmanCurrentIndex +width].classList.contains('ghost-lair')
+        )
+        pacmanCurrentIndex += width
+        break
+    }
+    squares[pacmanCurrentIndex].classList.add('pac-man')
+    pacDotEaten()
+    powerPelletEaten()
+    checkForGameOver()
+    checkForWin()
+  }
+  navigationBtns.forEach(btn => {
+    btn.addEventListener("click", movePacmanByButtons)
+  })
+
   // what happens when you eat a pac-dot
   function pacDotEaten() {
     if (squares[pacmanCurrentIndex].classList.contains('pac-dot')) {
@@ -218,6 +273,9 @@ document.addEventListener('DOMContentLoaded', () => {
       !squares[pacmanCurrentIndex].classList.contains('scared-ghost')) {
       ghosts.forEach(ghost => clearInterval(ghost.timerId))
       document.removeEventListener('keyup', movePacman)
+      navigationBtns.forEach(btn => {
+        btn.removeEventListener('click', movePacmanByButtons)
+      })
       setTimeout(function(){ alert("Game Over"); }, 500)
     }
   }
@@ -227,6 +285,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (score === 274) {
       ghosts.forEach(ghost => clearInterval(ghost.timerId))
       document.removeEventListener('keyup', movePacman)
+      navigationBtns.forEach(btn => {
+        btn.removeEventListener('click', movePacmanByButtons)
+      })
       setTimeout(function(){ alert("You have WON!"); }, 500)
     }
   }
