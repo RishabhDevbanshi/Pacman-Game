@@ -75,54 +75,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // console.log(getCoordinates(pacmanCurrentIndex))
 
-  //move pacman
+
+  //#region Movement constants
+  const KEYCODES_TRANSLATE = {
+    37: 'LEFT',
+    38: 'UP',
+    39: 'RIGHT',
+    40: 'DOWN',
+  };
+
+  const PACMAN_NEXT_POSITION = {
+    UP: () => pacmanCurrentIndex - width,
+    DOWN: () => pacmanCurrentIndex + width,
+    LEFT: () => pacmanCurrentIndex - 1,
+    RIGHT: () => pacmanCurrentIndex + 1,
+  };
+
+  const CAN_MOVE = {
+    UP: () => pacmanCurrentIndex - width >= 0,
+    DOWN: () => pacmanCurrentIndex + width < width * width,
+    LEFT: () => pacmanCurrentIndex % width !== 0,
+    RIGHT: () => pacmanCurrentIndex % width < width - 1,
+  };
+  //#endregion
+
   function movePacman(e) {
-    squares[pacmanCurrentIndex].classList.remove('pac-man')
-    switch(e.keyCode) {
-      case 37:
-        if(
-          pacmanCurrentIndex % width !== 0 &&
-          !squares[pacmanCurrentIndex -1].classList.contains('wall') &&
-          !squares[pacmanCurrentIndex -1].classList.contains('ghost-lair')
-          )
-        pacmanCurrentIndex -= 1
-        if (squares[pacmanCurrentIndex -1] === squares[363]) {
-          pacmanCurrentIndex = 391
-        }
-        break
-      case 38:
-        if(
-          pacmanCurrentIndex - width >= 0 &&
-          !squares[pacmanCurrentIndex -width].classList.contains('wall') &&
-          !squares[pacmanCurrentIndex -width].classList.contains('ghost-lair')
-          )
-        pacmanCurrentIndex -= width
-        break
-      case 39:
-        if(
-          pacmanCurrentIndex % width < width - 1 &&
-          !squares[pacmanCurrentIndex +1].classList.contains('wall') &&
-          !squares[pacmanCurrentIndex +1].classList.contains('ghost-lair')
-        )
-        pacmanCurrentIndex += 1
-        if (squares[pacmanCurrentIndex +1] === squares[392]) {
-          pacmanCurrentIndex = 364
-        }
-        break
-      case 40:
-        if (
-          pacmanCurrentIndex + width < width * width &&
-          !squares[pacmanCurrentIndex +width].classList.contains('wall') &&
-          !squares[pacmanCurrentIndex +width].classList.contains('ghost-lair')
-        )
-        pacmanCurrentIndex += width
-        break
+    // check if is valid input
+    if (!KEYCODES_TRANSLATE[e.keyCode]) {
+      return;
     }
-    squares[pacmanCurrentIndex].classList.add('pac-man')
-    pacDotEaten()
-    powerPelletEaten()
-    checkForGameOver()
-    checkForWin()
+
+    const direction = KEYCODES_TRANSLATE[e.keyCode];
+    const pacmanNextPositionIndex = PACMAN_NEXT_POSITION[direction]();
+    const squarePacmanNextPosition = squares[pacmanNextPositionIndex];
+
+    squares[pacmanCurrentIndex].classList.remove('pac-man');
+
+    if (CAN_MOVE[direction]() && isWallOrGhost(squarePacmanNextPosition)) {
+      pacmanCurrentIndex = pacmanNextPositionIndex;
+      checkTeleport();
+    }
+
+    squares[pacmanCurrentIndex].classList.add('pac-man');
+    pacDotEaten();
+    powerPelletEaten();
+    checkForGameOver();
+    checkForWin();
+  }
+  
+  function isWallOrGhost(square) {
+    return (
+      !square.classList.contains('wall') &&
+      !square.classList.contains('ghost-lair')
+    );
+  }
+
+  function checkTeleport() {
+    if (squares[pacmanCurrentIndex] === squares[392]) {
+      pacmanCurrentIndex = 364;
+    }
+    if (squares[pacmanCurrentIndex] === squares[363]) {
+      pacmanCurrentIndex = 391;
+    }
   }
   document.addEventListener('keyup', movePacman)
 
