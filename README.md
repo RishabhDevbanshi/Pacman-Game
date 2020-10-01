@@ -20,7 +20,7 @@ git clone https://github.com/RishabhDevbanshi/Pacman-Game.git
 <li>Move Pacman using arrow keys.</li>
 <li>Stay away from the colored ghosts. If your pacman comes in contact with colored ghost, the game ends</li>
 <li>Cover the green balls</li>
-<ul>
+</ul>
 
 ## Contributing
 
