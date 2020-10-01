@@ -62,3 +62,32 @@ body {
   border-radius: 10px;
 }
 
+
+
+button{
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 1.5rem;
+    color:var(--colorShadeA);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: inherit;
+    text-shadow: 1px 1px pink, -1px -1px maroon;
+  
+    background: rgb(150, 232, 195);
+    border-radius: inherit;
+      box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.75em 0 0 var(--colorShadeA);
+   transform: translate3d(0, 0.75em, -1em);
+       transition: all 175ms cubic-bezier(0, 0, 1, 1);
+  
+}
+
+button:hover{
+  transform: translate(0, 0.375em);
+
+}
