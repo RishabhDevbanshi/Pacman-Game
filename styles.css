@@ -62,3 +62,9 @@ body {
   border-radius: 10px;
 }
 
+
+
+.material-icons {
+  font-size:64px !important;
+  cursor:pointer;
+}

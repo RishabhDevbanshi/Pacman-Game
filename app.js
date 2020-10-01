@@ -124,7 +124,23 @@ document.addEventListener('DOMContentLoaded', () => {
     checkForGameOver()
     checkForWin()
   }
-  document.addEventListener('keyup', movePacman)
+  document.addEventListener('keyup', movePacman);
+
+
+
+  document.querySelector('#leftBtn').addEventListener('click',function() {
+
+    movePacman({keyCode:37});
+  });
+  document.querySelector('#rightBtn').addEventListener('click',function() {
+    movePacman({keyCode:39});
+  });
+  document.querySelector('#upBtn').addEventListener('click',function() {
+    movePacman({keyCode:38});
+  });
+  document.querySelector('#downBtn').addEventListener('click',function() {
+    movePacman({keyCode:40});
+  });
 
   // what happens when you eat a pac-dot
   function pacDotEaten() {
