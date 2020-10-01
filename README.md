@@ -14,7 +14,7 @@ start index.html
 
 ```
 
-## How to play
+## How to play it
 
 Move Pacman using direcional arrows and stay way from the colored ghosts.
 
@@ -25,10 +25,10 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
-## License
+## Licenses
 
 PAC-MAN is a trademark of BANDAI NAMCO ENTERTAINMENT INC.
 This game is developed under reasons of study only.
 
-## Support
+## Supports
  Don't forget to give this Repository a star ! 
