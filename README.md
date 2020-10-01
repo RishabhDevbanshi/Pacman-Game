@@ -2,9 +2,9 @@
 
 PacmanJs is a Javascript, HTML and Css based game that enable you to play with the most carismatic 80's character ever created.
 
-**Link of the Project:https://bhavesh1129.github.io/Random-Password-Generator/**
+**Link of the Project:https://rishabhdevbanshi.github.io/Pacman-Game/**
 
-<img src="https://github.com/bhavesh1129/Random-Password-Generator/blob/master/Image.PNG" width="700" height="500">
+<img src="https://github.com/bhavesh1129/Pacman-Game/blob/master/PacmanImage.PNG" width="700" height="500">
 
 ## Installation/Execute
 
