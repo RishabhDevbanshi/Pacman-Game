@@ -16,7 +16,7 @@ start index.html
 
 ## How to play
 
-Move Pacman using direcional arrows and stay way from the colored ghosts.
+Move Pacman using directional arrows and stay way from the colored ghosts.
 
 
 ## Contributing
