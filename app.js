@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const scoreDisplay = document.getElementById('score')
+  const onScreenBtns = document.querySelectorAll(".onscreen-btns button")
   const width = 28
   let score = 0
   const grid = document.querySelector('.grid')
@@ -78,8 +79,9 @@ document.addEventListener('DOMContentLoaded', () => {
   //move pacman
   function movePacman(e) {
     squares[pacmanCurrentIndex].classList.remove('pac-man')
-    switch(e.keyCode) {
+    switch(e.keyCode ? e.keyCode : e.target.innerText) {
       case 37:
+      case "L":
         if(
           pacmanCurrentIndex % width !== 0 &&
           !squares[pacmanCurrentIndex -1].classList.contains('wall') &&
@@ -91,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         break
       case 38:
+      case "U":
         if(
           pacmanCurrentIndex - width >= 0 &&
           !squares[pacmanCurrentIndex -width].classList.contains('wall') &&
@@ -99,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pacmanCurrentIndex -= width
         break
       case 39:
+      case "R":
         if(
           pacmanCurrentIndex % width < width - 1 &&
           !squares[pacmanCurrentIndex +1].classList.contains('wall') &&
@@ -110,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         break
       case 40:
+      case "D":
         if (
           pacmanCurrentIndex + width < width * width &&
           !squares[pacmanCurrentIndex +width].classList.contains('wall') &&
@@ -125,6 +130,10 @@ document.addEventListener('DOMContentLoaded', () => {
     checkForWin()
   }
   document.addEventListener('keyup', movePacman)
+
+  onScreenBtns.forEach(function (onScreenbtn) {
+    onScreenbtn.addEventListener("click", movePacman)
+  })
 
   // what happens when you eat a pac-dot
   function pacDotEaten() {

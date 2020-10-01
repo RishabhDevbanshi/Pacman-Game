@@ -62,3 +62,21 @@ body {
   border-radius: 10px;
 }
 
+.onscreen-btns {
+  width: 560px;
+  text-align: center;
+}
+
+.onscreen-btns button {
+  margin-top: 5px;
+  background: blue;
+  color: whitesmoke;
+  border: none;
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
+.onscreen-btns button:active {
+  background: darkblue;
+}
+
