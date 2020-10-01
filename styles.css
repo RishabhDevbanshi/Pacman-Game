@@ -60,5 +60,42 @@ body {
 .pac-man{
   background-color: yellow;
   border-radius: 10px;
+  position: relative;
+}
+.pacman-eye {
+  width: 20% !important;
+  height: 20% !important;
+  position: absolute;
+  border-radius: 50%;
+  background: #333333;
+  right: 5px;
+  top: 5px;
+}
+.pacman-mouth {
+    background: #808080;
+    position: absolute;
+    top: 2px;
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+    animation-name: eat;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes eat {
+  0% {
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
+  25% {
+    clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
+  }
+  50% {
+    clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
+  }
+  75% {
+    clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
+  }
+  100% {
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
 }
 
