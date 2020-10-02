@@ -1,13 +1,13 @@
 body {
-  background-color: grey;
+  background-color: #4f0208;
 }
 
-.grid{
+.grid {
   display: flex;
   flex-wrap: wrap;
   width: 560px;
   height: 560px;
-  border: solid black;
+  border: solid #ac8a71;
 }
 
 .grid div {
@@ -15,50 +15,56 @@ body {
   height: 20px;
 }
 
-.power-pellet{
-  background-color: green;
+.power-pellet {
+  /*background-color: green;*/
+  background-color: #808080;
   border-radius: 10px;
 }
 
 .pac-dot {
-  background-color: green;
-  border: 5px solid grey;
+  /*background-color: green;*/
+  background-color: #808080;
+  /*border: 5px solid grey;*/
+  border: 5px solid #4f0208;
   box-sizing: border-box;
 }
 
-.blinky{
+.blinky {
   background-color: red;
 }
 
-.stinky{
+.stinky {
   background-color: pink;
 }
 
-.inky{
+.inky {
   background-color: cyan;
 }
 
-.clyde{
+.clyde {
   background-color: orange;
 }
 
-.ghost{
+.ghost {
   border: 0px;
   border-radius: 0px;
 }
 
-.scared-ghost{
+.scared-ghost {
   background-color: purple;
   border: 0px;
   border-radius: 0px;
 }
 
-.wall{
-  background-color: blue;
+.wall {
+  /*background-color: blue;*/
+  background-color: #ac8a71;
 }
 
-.pac-man{
+.pac-man {
   background-color: yellow;
   border-radius: 10px;
 }
-
+h2 {
+  color: #ac8a71;
+}
