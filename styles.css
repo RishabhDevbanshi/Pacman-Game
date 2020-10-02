@@ -1,5 +1,15 @@
+@charset "UTF-8";
+
 body {
   background-color:black;
+}
+
+.img {
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 560px;
+  padding-left: 200px;
 }
 
 
@@ -21,15 +31,17 @@ body {
 
 
 .power-pellet{
-  background-color: rgb(14, 233, 14);
+  background-color: rgb(255, 169, 163);
   border-radius: 10px;
 }
 
 .pac-dot {
-  background-color: green;
-  border: 3px solid rgb(194, 190, 190);
-  box-sizing: border-box;
-  border-radius: 10px;
+  text-align: center;
+  color: #EB9C96;
+}
+
+.pac-dot::before {
+  content: "•";
 }
 
 .blinky {
@@ -86,3 +98,78 @@ h2{
 .high-score{
   color: red;
 }
+
+/* Buttons */
+.control-pad{
+  background-color: black;
+}
+
+button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: rgb(0, 0, 0);
+  background-color: #ffee00;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+button:hover {
+  background-color: #ceaf00;
+}
+
+button:active {
+  background-color: #ffee00;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button span:after {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+button:hover span {
+  padding-right: 25px;
+}
+
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#top {
+  padding-left: 77px;
+  margin-bottom: 10px;
+}
+
+#control-pad {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+  width: 235px;
+  align-content: center;
+  padding: 30px;
+}
+
+.mid-score{
+  color: yellow;
+}
+
+.high-score{
+  color: red;
+}
+
