@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const scoreDisplay = document.getElementById("score");
   const width = 28;
   let score = 0;
+  let pacDotEatens = 0
   const grid = document.querySelector(".grid");
+
   const layout = [
     1,
     1,
@@ -795,6 +797,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 3 - power-pellet
   // 4 - empty
 
+  const winDotEaten = layout.filter(x => x === 0).length
   const squares = [];
 
   //create your board
@@ -945,7 +948,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // what happens when you eat a pac-dot
   function pacDotEaten() {
     if (squares[pacmanCurrentIndex].classList.contains("pac-dot")) {
-      score++;
+       score++;
+       pacDotEatens++
       if (score < 50) {
         document.getElementById("score").classList.add("low-score");
       } else if (score > 100) {
@@ -1063,7 +1067,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //check for a win - more is when this score is reached
   function checkForWin() {
-    if (score === 274) {
+     if (pacDotEatens === winDotEaten) {
       ghosts.forEach((ghost) => clearInterval(ghost.timerId));
       document.removeEventListener("keyup", movePacman);
       pacmanVelocity.x = 0;
