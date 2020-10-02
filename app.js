@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const scoreDisplay = document.getElementById('score')
   const width = 28
   let score = 0
+  let direction = 'right'
   const grid = document.querySelector('.grid')
   const layout = [
     1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -75,8 +76,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // console.log(getCoordinates(pacmanCurrentIndex))
 
+
+  // new move pacman -----------------------------------------------------
+
+  const pacmanSpeed = 500/(prompt("Please enter Pacman's speed [1-3]:"))
+
+  document.addEventListener("keydown", update);
+
+  function update(event){
+    if(event.keyCode == 37) direction = "left";
+    if(event.keyCode == 40) direction = "up";
+    if(event.keyCode == 39) direction = "right";
+    if(event.keyCode == 38) direction = "down";
+    movePacman();
+  }
+
+  function movePacman() {   
+    squares[pacmanCurrentIndex].classList.remove('pac-man')
+    switch(direction) {
+      case 'left':
+        if(
+          pacmanCurrentIndex % width !== 0 &&
+          !squares[pacmanCurrentIndex -1].classList.contains('wall') &&
+          !squares[pacmanCurrentIndex -1].classList.contains('ghost-lair')
+          )
+        pacmanCurrentIndex -= 1
+        if (squares[pacmanCurrentIndex -1] === squares[363]) {
+          pacmanCurrentIndex = 391
+        }
+        break
+      case 'down':
+        if(
+          pacmanCurrentIndex - width >= 0 &&
+          !squares[pacmanCurrentIndex -width].classList.contains('wall') &&
+          !squares[pacmanCurrentIndex -width].classList.contains('ghost-lair')
+          )
+        pacmanCurrentIndex -= width
+        break
+      case 'right':
+        if(
+          pacmanCurrentIndex % width < width - 1 &&
+          !squares[pacmanCurrentIndex +1].classList.contains('wall') &&
+          !squares[pacmanCurrentIndex +1].classList.contains('ghost-lair')
+        )
+        pacmanCurrentIndex += 1
+        if (squares[pacmanCurrentIndex +1] === squares[392]) {
+          pacmanCurrentIndex = 364
+        }
+        break
+      case 'up':
+        if (
+          pacmanCurrentIndex + width < width * width &&
+          !squares[pacmanCurrentIndex +width].classList.contains('wall') &&
+          !squares[pacmanCurrentIndex +width].classList.contains('ghost-lair')
+        )
+        pacmanCurrentIndex += width
+        break
+    }
+    squares[pacmanCurrentIndex].classList.add('pac-man')
+    pacDotEaten()
+    powerPelletEaten()
+    checkForGameOver()
+    checkForWin()
+  }
+
+  let game = setInterval(movePacman, pacmanSpeed)
+
+  
+  // ----------------------------------------------------------------------
+   
   //move pacman
-  function movePacman(e) {
+
+  /* function movePacman(e) {
     squares[pacmanCurrentIndex].classList.remove('pac-man')
     switch(e.keyCode) {
       case 37:
@@ -125,6 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkForWin()
   }
   document.addEventListener('keyup', movePacman)
+  */
 
   // what happens when you eat a pac-dot
   function pacDotEaten() {
