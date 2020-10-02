@@ -1,13 +1,32 @@
+@charset "UTF-8";
+
 body {
-  background-color: grey;
+  background-color: black;
 }
 
+header {
+  background-color: teal;
+  text-align: center;
+  padding: none;
+  height: 200px;
+  margin-bottom: 10px;
+}
+img {
+  padding: none;
+}
+
+/* Game */
+.game{
+  padding-left: 30%;
+  padding-right: 30%;
+}
 .grid{
   display: flex;
   flex-wrap: wrap;
   width: 560px;
   height: 560px;
-  border: solid black;
+  border: solid yellow;
+  place-content: center;
 }
 
 .grid div {
@@ -16,14 +35,17 @@ body {
 }
 
 .power-pellet{
-  background-color: green;
+  background-color: #FFAAA4;
   border-radius: 10px;
 }
 
 .pac-dot {
-  background-color: green;
-  border: 5px solid grey;
-  box-sizing: border-box;
+  text-align: center;
+  color: #EB9C96;
+}
+
+.pac-dot::before {
+  content: "•";
 }
 
 .blinky{
@@ -62,6 +84,12 @@ body {
   border-radius: 10px;
 }
 
+h3 {
+  color: white;
+}
+
+
+/* Buttons */
 .control-pad{
   background-color: black;
 }

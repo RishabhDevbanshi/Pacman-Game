@@ -4,24 +4,31 @@
     <meta charset="utf-8">
     <title>PacMan</title>
     <link rel="stylesheet" href="styles.css">
-      <script src="app.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
   </head>
   <body>
-    <div class="grid"></div>
+    <header>
+      <img src="pacman.png" />
+    </header>
+   
+    <div class="game">
+      <div class="grid"></div>
 
-    <br />
+      <br />
 
-    <div id="control-pad">
-      <div id="top">
-        <button aria-label="up">&#8679;</button>
+      <div id="control-pad">
+        <div id="top">
+          <button aria-label="up">&#8679;</button>
+        </div>
+        <button aria-label="left">&#8678;</button>
+        <button aria-label="down">&#8681;</button>
+        <button aria-label="right">&#8680;</button>
+        
       </div>
-      <button aria-label="left">&#8678;</button>
-      <button aria-label="down">&#8681;</button>
-      <button aria-label="right">&#8680;</button>
-      
-    </div>
 
-    <h3>Score: <span id="score">0</span></h3>    
+      <h3>Score: <span id="score">0</span></h3> 
+    </div>
+       
 
   </body>
 </html>
