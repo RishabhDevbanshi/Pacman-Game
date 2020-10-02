@@ -75,8 +75,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // console.log(getCoordinates(pacmanCurrentIndex))
 
+  var upbtn = document.getElementById("up");
+  var downbtn = document.getElementById("down");
+  var rightbtn = document.getElementById("right");
+  var leftbtn = document.getElementById("left");
+
   //move pacman
   function movePacman(e) {
+
+    if(e.currentTarget.id=="up")
+      e.keyCode=38;
+    else if(e.currentTarget.id=="down")
+      e.keyCode=40;
+    else if(e.currentTarget.id=="left")
+      e.keyCode=37;
+    else if(e.currentTarget.id=="right")
+      e.keyCode=39;
+
     squares[pacmanCurrentIndex].classList.remove('pac-man')
     switch(e.keyCode) {
       case 37:
@@ -125,6 +140,11 @@ document.addEventListener('DOMContentLoaded', () => {
     checkForWin()
   }
   document.addEventListener('keyup', movePacman)
+  // add event listner to move buttons
+  upbtn.addEventListener('click',movePacman)
+  downbtn.addEventListener('click',movePacman)
+  rightbtn.addEventListener('click',movePacman)
+  leftbtn.addEventListener('click',movePacman)
 
   // what happens when you eat a pac-dot
   function pacDotEaten() {

@@ -2,6 +2,25 @@ body {
   background-color: grey;
 }
 
+/* added css to display buttons and score on right side of game board */
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.col {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 20px 50px;
+  margin: 0 0 20px 50px;
+}
+
 .grid{
   display: flex;
   flex-wrap: wrap;
@@ -62,3 +81,71 @@ body {
   border-radius: 10px;
 }
 
+/* CSS for buttons */
+button{
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  margin-right: 10px;
+  padding: 20px;
+  border: 0;
+  vertical-align: middle;
+  font-size: 1.25rem;
+  background: none;
+  font-weight: 550;
+  
+  
+  transform: translate3d(0, 0.75em, -1em);
+    transition: all 180ms cubic-bezier(0, 0, 1, 1);
+}
+
+button:hover{
+  transform: translate(0, 0.365em);
+}
+
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+ul li {
+  box-sizing: border-box;
+  width: 15em;
+  height: 3em;
+  font-size: 20px;
+  border-radius: 0.5em;
+  margin: 0.5em;
+  box-shadow: 0 0 1em rgba(0,0,0,0.2);
+  color: white;
+  font-family: sans-serif;
+  text-transform: capitalize;
+  line-height: 3em;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+ul li:nth-child(odd) {
+  background: linear-gradient(to right, orange, tomato);
+  text-align: left;
+  padding-left: 10%;
+  transform: perspective(500px) rotateY(45deg);
+}
+
+ul li:nth-child(even) {
+  background: linear-gradient(to left, orange, tomato);
+  text-align: right;
+  padding-right: 10%;
+  transform: perspective(500px) rotateY(-45deg);
+}
+
+ul li:nth-child(odd):hover {
+  transform: perspective(200px) rotateY(45deg);
+  padding-left: 5%;
+}
+
+ul li:nth-child(even):hover {
+  transform: perspective(200px) rotateY(-45deg);
+  padding-right: 5%;
+}
