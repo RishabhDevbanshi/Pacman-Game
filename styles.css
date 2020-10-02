@@ -23,6 +23,19 @@ body {
 .power-pellet{
   background-color: rgb(14, 233, 14);
   border-radius: 10px;
+  animation: blink 0.5s ease infinite;
+}
+
+@keyframes blink{
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 100;
+  }
+  100%{
+    opacity: 0;
+  }
 }
 
 .pac-dot {
@@ -51,13 +64,14 @@ body {
 
 .ghost {
   border: 0px;
-  border-radius: 0px;
+  border-radius: 50% 50% 0% 0%;
 }
 
 .scared-ghost {
-  background-color: purple;
+  background-color: rgb(202, 0, 202);
   border: 0px;
-  border-radius: 0px;
+  border-radius: 50% 50% 0% 0%;
+  animation: blink 0.1s ease infinite;
 }
 
 .wall{
@@ -85,4 +99,57 @@ h2{
 
 .high-score{
   color: red;
+}
+
+#controlpannel{
+  position: relative;
+  display: grid;
+  left:75vw;
+  bottom: 17vh;
+  /* background-color: chartreuse; */
+  height: 10vh;
+  width: 16vw;
+  grid-template-rows: 10fr 10fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.dirButton{
+  margin: 0.5vh;
+  opacity: 0.6;
+}
+
+.dirButton:hover{
+  opacity: 1;
+}
+
+#up{
+  background-image:url("buttonimages/up.png") ;
+  background-size: 100% 100%;
+  width:4.2vw;
+  height:4.2vw;
+  grid-column: 2 / 3;
+}
+#down{
+  background-image:url("buttonimages/down.png") ;
+  background-size: 100% 100%;
+  width:4.2vw;
+  height:4.2vw;
+  grid-column: 2 / 3;
+  grid-row: 2/3;
+}
+#left{
+  background-image:url("buttonimages/left.png") ;
+  background-size: 100% 100%;
+  width:4.2vw;
+  height:4.2vw;
+  grid-column: 1 / 2;
+  grid-row: 2/3;
+}
+#right{
+  background-image:url("buttonimages/right.png") ;
+  background-size: 100% 100%;
+  width:4.2vw;
+  height:4.2vw;
+  grid-column: 3 / 4;
+  grid-row: 2/3;
 }
