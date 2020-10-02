@@ -44,13 +44,38 @@ body {
 
 .ghost{
   border: 0px;
-  border-radius: 0px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  position: relative;
+}
+
+.ghost::before {
+  content: '';
+  position: absolute;
+  background-color: black;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  left: 5px;
+  top: 5px;
+}
+
+.ghost::after {
+  content: '';
+  position: absolute;
+  background-color: black;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  right: 5px;
+  top: 5px;
 }
 
 .scared-ghost{
   background-color: purple;
   border: 0px;
-  border-radius: 0px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
 }
 
 .wall{
@@ -60,5 +85,27 @@ body {
 .pac-man{
   background-color: yellow;
   border-radius: 10px;
+  position: relative;
 }
 
+.pac-man::before {
+  content: '';
+  position: absolute;
+	border-color: transparent grey;
+	border-style: solid;
+  border-width: 10px 10px 10px 0px;
+  right: 0;
+	height: 0px;
+	width: 0px;
+}
+
+.pac-man::after {
+  content: '';
+  position: absolute;
+  background-color: black;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  right: 10px;
+  top: 2.5px;
+}
