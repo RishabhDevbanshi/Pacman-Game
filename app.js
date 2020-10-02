@@ -836,15 +836,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // set pacman velocity
   function setPacmanVelocity(e) {
-    if (e.target.id === 'btn-left') {
+    let targetId = e.target.id;
+
+    if (targetId === 'btn-left') {
       e.keyCode = 37;
-    } else if (e.target.id === 'btn-up') {
+    } else if (targetId === 'btn-up') {
       e.keyCode = 38;
-    } else if (e.target.id === 'btn-right') {
+    } else if (targetId === 'btn-right') {
       e.keyCode = 39;
-    } else if (e.target.id === 'btn-down') {
+    } else if (targetId === 'btn-down') {
       e.keyCode = 40;
     }
+
     switch (e.keyCode) {
       case 37:
         if (
