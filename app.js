@@ -310,4 +310,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
-
