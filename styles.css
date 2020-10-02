@@ -51,6 +51,7 @@ body {
   border: solid black 7px;
   box-sizing: border-box;
   border-radius: 10px;
+  box-shadow: inset -25px -25px 40px rgba(0,0,0,.5);
 }
 
 .blinky {
