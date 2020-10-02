@@ -1,93 +1,92 @@
-/* Removes default body margin*/
-*{
-	margin:0;
+@font-face {
+  font-family: "PressStart2P";
+  src: url("./fonts/PressStart2P.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background-color: rgba(10,10,10,0.3);
+  font-family: "PressStart2P", sans-serif;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.upper-row-layout{
-	width:100vw;
-	height:100vh;
-	display:grid;
-	grid-template-columns:repeat(2,1fr);/*100vw calc(100vw-560px); */
+.game-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-
-
-.grid{
+.grid {
   display: flex;
   flex-wrap: wrap;
   width: 560px;
   height: 560px;
-  border: 8px inset black;
-  border-radius:20px;
+  border: 0.2px solid rgb(1, 17, 17);
 }
 
-.grid:hover
-{
-	box-shadow:5px 2px 4px 2px grey;
-	transition:box-shadow 150ms ease-in-out;
-	cursor:pointer;
-}
 
-.grid:active
-{
-	box-shadow:5px 2px 4px 2px grey inset;
-	transition:box-shadow 200ms ease-in-out;
-}
 
 .grid div {
   width: 20px;
   height: 20px;
 }
 
-.power-pellet{
-  background-color: green;
+.power-pellet {
+  background-color: rgb(14, 233, 14);
+  border: solid black 4px;
+  box-sizing: border-box;
   border-radius: 10px;
 }
 
 .pac-dot {
-  background-color: green;
-  border: 5px solid rgba(255,255,255,0.69);
+  background-color: yellow;
+  border: solid black 7px;
   box-sizing: border-box;
+  border-radius: 10px;
 }
 
-.blinky{
-  background: radial-gradient(circle,rgba(255,210,10,0.2),rgba(255,10,10,0.5),rgba(255,10,10,0.9));
+.blinky {
+  background: radial-gradient(rgba(255,200,200,0.9),rgba(255,0,0,0.9));
   /* Adds the reddish color */
 }
 
-.stinky{
-  background: radial-gradient(circle,rgba(255,250,203,0.3),rgba(255,50,203,0.7),rgba(255,20,183,0.9));
+.stinky {
+  background: radial-gradient(circle,rgba(255,250,203,1),rgba(255,20,183,0.9));
   /* Adds the pinkish color*/
 }
 
-.inky{
-  background: radial-gradient(circle,rgba(10,250,220,0.3),rgba(10,20,220,0.9));
+.inky {
+  background: radial-gradient(circle,rgba(210,250,220,0.8),rgba(10,20,220,0.9));
   /*Adds the blueish color*/
 }
 
-.clyde{
-  background: radial-gradient(rgba(255,242,220,0.3),rgba(255,142,20,0.6),rgba(255,122,0,0.9));
-  /* Adds the orange color */
+.clyde {
+  background: radial-gradient(rgba(215,242,220,0.9),rgba(243, 225, 78,0.4));
+  /* Adds the grey-brownish color */
 }
 
-.ghost{
+.ghost {
   border: 0px;
   border-radius: 0px;
 }
 
-.scared-ghost{
-  /*background-color: purple;
+.scared-ghost {
+  background: rgba(139,0,139);
+  animation: shake 800ms;
   border: 0px;
-  border-radius: 0px;*/
-  
-  
-  /* Start the shake animation and make the animation last for 300 milliseconds */
-  animation: shake 300ms;
+  border-radius: 0px;
 }
+
 
 /* Animation for shaking the scared-ghost*/
 @keyframes shake {
@@ -105,49 +104,126 @@ body {
 }
 
 
-.wall{
-  background: linear-gradient(to right,rgba(20,20,255,0.2),rgba(20,20,255,0.9));
+.wall {
+  background: linear-gradient(to right,rgba(20,20,255,0.3),rgba(20,20,255,0.9));
 }
 
-.pac-man{
-  background: radial-gradient(rgba(20,20,20,0.2),rgba(20,20,20,0.9));
+.pac-man {
+  background:radial-gradient(rgba(240, 232, 22,1),rgba(255, 212, 72,0.7)); 
   border-radius: 10px;
 }
-
-.pac-man:hover
-{
-	box-shadow:1.5px 1.5px 1px 1px grey;
-	transition:box-shadow 100ms ease-in-out;
-	cursor:pointer;
+h2 {
+  color: white;
+  font-weight: normal;
+  text-align: center;
 }
 
-/* Styling for the box conatining score*/
+.low-score {
+  color: red;
+}
+
+.mid-score {
+  color: yellow;
+}
+
+.high-score {
+  color: red;
+}
+
+#start-screen {
+  background-color: black;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+}
+
+#start-screen h1 {
+  color: yellow;
+  font-size: 4rem;
+  margin-top: 40vh;
+  margin-bottom: 40px;
+  animation: colours 1s infinite;
+}
+
+#start-msg {
+  animation: blink 0.8s infinite;
+}
+
+#start-screen h2 {
+  margin: 20px 0px;
+}
+
+#game-over-screen {
+  align-items: center;
+  color: red;
+  font-size: 6rem;
+  justify-content: center;
+  animation: blink 0.8s infinite;
+  display: none;
+}
+
+#you-won-screen {
+  align-items: center;
+  color: #0bf117;
+  font-size: 6rem;
+  justify-content: center;
+  animation: blink 0.8s infinite;
+  display: none;
+}
+
+.overlay-screen {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+@keyframes colours {
+  0% {
+    color: yellow;
+  }
+  31% {
+    color: yellow;
+  }
+  33% {
+    color: #dd1282;
+  }
+  65% {
+    color: #dd1282;
+  }
+  66% {
+    color: #0fd6cc;
+  }
+  99% {
+    color: #0fd6cc;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  61% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+}
+
 
 .score-box
 {
-	margin:5px;
 	height:1.4em;
-	width:5em;
-	background:radial-gradient(#faf58c,#49a44c);
+	width:10em;
+	background:radial-gradient(circle,#faf58f 10%,#faf58c 20%,#49a44c);
 	border:2px black inset;
-	box-shadow:1px 1px 2px 1px rgba(20,10,20,0.8);
 	
-	padding:5px;
+	padding:10px;
 	border-radius:20%;
-	font-size:20px;
-	font-weight:500;
+	color:black;
 	user-select:none;
-}
-
-.score-box:hover
-{
-	box-shadow:2px 2px 2px 1px grey;
-	transition:box-shadow 100ms ease-in-out;
-	cursor:pointer;
-}
-
-.score-box:active
-{
-	box-shadow:0px 1px 1px 1px grey inset;
-	transition:box-shadow 180ms ease-in-out;
 }
