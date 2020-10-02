@@ -331,4 +331,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-})
+});
