@@ -10,6 +10,12 @@ body {
   border: solid black;
 }
 
+.gridScore{
+  width: 560px;
+  text-align: center;
+  border: solid black;
+}
+
 .grid div {
   width: 20px;
   height: 20px;
