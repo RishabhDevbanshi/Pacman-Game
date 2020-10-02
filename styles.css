@@ -2,7 +2,7 @@ body {
   background-color: grey;
 }
 
-.grid{
+.grid {
   display: flex;
   flex-wrap: wrap;
   width: 560px;
@@ -15,8 +15,8 @@ body {
   height: 20px;
 }
 
-.power-pellet{
-  background-color: green;
+.power-pellet {
+  background-color: lime;
   border-radius: 10px;
 }
 
@@ -26,39 +26,38 @@ body {
   box-sizing: border-box;
 }
 
-.blinky{
+.blinky {
   background-color: red;
 }
 
-.stinky{
+.stinky {
   background-color: pink;
 }
 
-.inky{
+.inky {
   background-color: cyan;
 }
 
-.clyde{
+.clyde {
   background-color: orange;
 }
 
-.ghost{
+.ghost {
   border: 0px;
   border-radius: 0px;
 }
 
-.scared-ghost{
+.scared-ghost {
   background-color: purple;
   border: 0px;
   border-radius: 0px;
 }
 
-.wall{
+.wall {
   background-color: blue;
 }
 
-.pac-man{
+.pac-man {
   background-color: yellow;
   border-radius: 10px;
 }
-
