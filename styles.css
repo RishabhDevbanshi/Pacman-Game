@@ -16,8 +16,7 @@ body {
 }
 
 .power-pellet{
-  background-color: white;
-  border-radius: 8px;
+ background-image: url(Power_pellet.png);
 }
 
 .pac-dot {
