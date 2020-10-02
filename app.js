@@ -836,6 +836,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // set pacman velocity
   function setPacmanVelocity(e) {
+    let targetId = e.target.id;
+
+    if (targetId === 'btn-left') {
+      e.keyCode = 37;
+    } else if (targetId === 'btn-up') {
+      e.keyCode = 38;
+    } else if (targetId === 'btn-right') {
+      e.keyCode = 39;
+    } else if (targetId === 'btn-down') {
+      e.keyCode = 40;
+    }
+
     switch (e.keyCode) {
       case 37:
         if (
@@ -881,6 +893,8 @@ document.addEventListener("DOMContentLoaded", () => {
     checkForGameOver();
     console.log(pacmanVelocity, e.keyCode);
   }
+
+  document.addEventListener("click", setPacmanVelocity);
 
   //move pacman
   function movePacman() {

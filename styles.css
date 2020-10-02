@@ -189,3 +189,38 @@ h2 {
     opacity: 0;
   }
 }
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 2px solid green;
+  border-radius: 0.6em;
+  color: green;
+  cursor: pointer;
+  display: flex;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-transform: uppercase;
+}
+.btn:focus {
+  color: #fff;
+  outline: 0;
+}
+.btn-mouseover {
+  background-image: linear-gradient(45deg, green 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: background 300ms ease-in-out;
+}
+.btn-mouseover:hover {
+  background-position: 0;
+  color: #fff;
+}
+.btn-padding {
+  padding: 1.2em 3.6em;
+}
