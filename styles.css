@@ -2,10 +2,11 @@ body {
   background-color:black;
 }
 
+
 .grid{
   margin-top: 2%;
   margin-left: auto;
-margin-right: auto;
+  margin-right: auto;
   display: flex;
   flex-wrap: wrap;
   width: 560px;
@@ -17,6 +18,7 @@ margin-right: auto;
   width: 20px;
   height: 20px;
 }
+
 
 .power-pellet{
   background-color: rgb(14, 233, 14);
@@ -30,9 +32,10 @@ margin-right: auto;
   border-radius: 10px;
 }
 
-.blinky{
+.blinky {
   background-color: red;
 }
+
 
 .stinky{
   background-color: rgb(221, 18, 130);
@@ -46,12 +49,12 @@ margin-right: auto;
   background-color: rgb(243, 125, 78);
 }
 
-.ghost{
+.ghost {
   border: 0px;
   border-radius: 0px;
 }
 
-.scared-ghost{
+.scared-ghost {
   background-color: purple;
   border: 0px;
   border-radius: 0px;
