@@ -125,6 +125,82 @@ document.addEventListener('DOMContentLoaded', () => {
     checkForWin()
   }
   document.addEventListener('keyup', movePacman)
+  /**
+   * update: button pacman move
+   * powered by: joz-bruer Quince
+   * email: quincejozbruer@gmail.com
+   * github: github.com/the-german
+   */
+  const up = document.querySelector('.up')
+  const down = document.querySelector('.down')
+  const left = document.querySelector('.left')
+  const right = document.querySelector('.right')
+
+  up.addEventListener('click',()=>{
+    squares[pacmanCurrentIndex].classList.remove('pac-man')
+    if(
+      pacmanCurrentIndex - width >= 0 &&
+      !squares[pacmanCurrentIndex -width].classList.contains('wall') &&
+      !squares[pacmanCurrentIndex -width].classList.contains('ghost-lair')
+      )
+    pacmanCurrentIndex -= width
+
+    movePacmanByClick()
+  })
+
+  down.addEventListener('click',()=>{
+    squares[pacmanCurrentIndex].classList.remove('pac-man')
+    if (
+      pacmanCurrentIndex + width < width * width &&
+      !squares[pacmanCurrentIndex +width].classList.contains('wall') &&
+      !squares[pacmanCurrentIndex +width].classList.contains('ghost-lair')
+    )
+    pacmanCurrentIndex += width
+
+    movePacmanByClick()
+  })
+
+  left.addEventListener('click',()=>{
+    squares[pacmanCurrentIndex].classList.remove('pac-man')
+
+    if(
+      pacmanCurrentIndex % width !== 0 &&
+      !squares[pacmanCurrentIndex -1].classList.contains('wall') &&
+      !squares[pacmanCurrentIndex -1].classList.contains('ghost-lair')
+      )
+    pacmanCurrentIndex -= 1
+    if (squares[pacmanCurrentIndex -1] === squares[363]) {
+      pacmanCurrentIndex = 391
+    }
+
+    movePacmanByClick()
+  })
+
+  right.addEventListener('click',()=>{
+    squares[pacmanCurrentIndex].classList.remove('pac-man')
+    if(
+      pacmanCurrentIndex % width < width - 1 &&
+      !squares[pacmanCurrentIndex +1].classList.contains('wall') &&
+      !squares[pacmanCurrentIndex +1].classList.contains('ghost-lair')
+    )
+    pacmanCurrentIndex += 1
+    if (squares[pacmanCurrentIndex +1] === squares[392]) {
+      pacmanCurrentIndex = 364
+    }
+
+    movePacmanByClick()
+  })
+  function movePacmanByClick(){
+    squares[pacmanCurrentIndex].classList.add('pac-man')
+    pacDotEaten()
+    powerPelletEaten()
+    checkForGameOver()
+    checkForWin()
+  }
+
+  /**
+   * End by joz-bruer quince
+   */
 
   // what happens when you eat a pac-dot
   function pacDotEaten() {

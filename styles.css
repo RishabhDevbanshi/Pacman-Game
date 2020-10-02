@@ -1,6 +1,9 @@
 body {
   background-color: grey;
 }
+.box{
+  display: flex;
+}
 
 .grid{
   display: flex;
@@ -62,3 +65,51 @@ body {
   border-radius: 10px;
 }
 
+/* Button */
+.button{
+  width: 300px;
+  height: 300px;
+  /* background: red; */
+  margin: 10px;
+}
+.up{
+  margin:auto;
+  display: flex;
+  width: 90px;
+  height: 90px;
+  background: blue;
+  border: 0.5px solid white;
+  align-items: center;
+  justify-content: center;
+}
+
+.down{
+  margin:auto;
+  display: flex;
+  width: 90px;
+  height: 90px;
+  background: blue;
+  border: 0.5px solid white;
+  align-items: center;
+  justify-content: center;
+}
+
+.left{
+  display: flex;
+  width: 90px;
+  height: 90px;
+  background: blue;
+  border: 0.5px solid white;
+  align-items: center;
+  justify-content: center;
+}
+.right{
+  float: right;
+  display: flex;
+  width: 90px;
+  height: 90px;
+  background: blue;
+  border: 0.5px solid white;
+  align-items: center;
+  justify-content: center;
+}
