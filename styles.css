@@ -1,17 +1,14 @@
 body {
-  background-color:black;
+  background-color: rgb(209, 209, 209);
 }
 
-
-.grid{
-  margin-top: 2%;
-  margin-left: auto;
-  margin-right: auto;
+.grid {
   display: flex;
   flex-wrap: wrap;
   width: 560px;
   height: 560px;
-  border: 0.2px solid rgb(1, 17, 17);
+  border: solid black;
+  margin: auto;
 }
 
 .grid div {
@@ -19,70 +16,54 @@ body {
   height: 20px;
 }
 
-
-.power-pellet{
-  background-color: rgb(14, 233, 14);
+.power-pellet {
+  background-color: #eae6c1;
   border-radius: 10px;
 }
 
 .pac-dot {
-  background-color: green;
-  border: 3px solid rgb(194, 190, 190);
+  background-color: #eae6c1;
+  border-radius: 15px;
+  border: 5px solid grey;
   box-sizing: border-box;
-  border-radius: 10px;
 }
 
 .blinky {
   background-color: red;
 }
 
-
-.stinky{
-  background-color: rgb(221, 18, 130);
+.stinky {
+  background-color: pink;
 }
 
-.inky{
-  background-color: rgb(15, 214, 204);
+.inky {
+  background-color: cyan;
 }
 
-.clyde{
-  background-color: rgb(243, 125, 78);
+.clyde {
+  background-color: orange;
 }
 
 .ghost {
   border: 0px;
-  border-radius: 0px;
+  border-radius: 15px 15px 0px 0px;
 }
 
 .scared-ghost {
   background-color: purple;
   border: 0px;
-  border-radius: 0px;
+  border-radius: 15px 15px 0px 0px;
 }
 
-.wall{
-  background-color: rgb(8, 14, 102);
+.wall {
+  background-color: blue;
 }
 
-.pac-man{
-  background-color: rgb(247, 232, 22);
+.pac-man {
+  background-color: rgb(255, 0, 140);
   border-radius: 10px;
 }
-h2{
-  color: white;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+h2 {
   text-align: center;
-
-}
-
-.low-score{
-  color: red;
-}
-
-.mid-score{
-  color: yellow;
-}
-
-.high-score{
-  color: red;
 }
