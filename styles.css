@@ -75,3 +75,14 @@ h2{
 
 }
 
+.low-score{
+  color: red;
+}
+
+.mid-score{
+  color: yellow;
+}
+
+.high-score{
+  color: red;
+}
