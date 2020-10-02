@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("score").classList.add("low-score");
       } else if(score > 100){
         document.getElementById("score").classList.add("mid-score");
-      } else{
+      } else if(score > 200){
         document.getElementById("score").classList.add("high-score");
       }
       scoreDisplay.innerHTML = score
