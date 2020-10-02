@@ -130,6 +130,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function pacDotEaten() {
     if (squares[pacmanCurrentIndex].classList.contains('pac-dot')) {
       score++
+      if(score < 50){
+        document.getElementById("score").classList.add("low-score");
+      } else if(score > 100){
+        document.getElementById("score").classList.add("mid-score");
+      } else{
+        document.getElementById("score").classList.add("high-score");
+      }
       scoreDisplay.innerHTML = score
       squares[pacmanCurrentIndex].classList.remove('pac-dot')
     }

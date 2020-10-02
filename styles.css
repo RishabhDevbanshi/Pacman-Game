@@ -62,3 +62,14 @@ body {
   border-radius: 10px;
 }
 
+.low-score{
+  color: red;
+}
+
+.mid-score{
+  color: yellow;
+}
+
+.high-score{
+  color: red;
+}
