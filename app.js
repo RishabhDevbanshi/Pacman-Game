@@ -39,8 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2 - ghost-lair
   // 3 - power-pellet
   // 4 - empty
-
-  const squares = [];
+  
+  const squares = []
+  let clock_flash_ghost=1
 
   //create your board
   function createBoard() {
@@ -199,13 +200,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   //what happens when you eat a power-pellet
+  //variable to have the time of vulnerability of ghosts
+  const time_vul_ghosts = 5000
   function powerPelletEaten() {
-    if (squares[pacmanCurrentIndex].classList.contains("power-pellet")) {
-      score += 10;
-      ghosts.forEach((ghost) => (ghost.isScared = true));
-      setTimeout(unScareGhosts, 10000);
-      squares[pacmanCurrentIndex].classList.remove("power-pellet");
-      checkForWin();
+
+    if (squares[pacmanCurrentIndex].classList.contains('power-pellet')) {
+      score +=10
+      ghosts.forEach(ghost => ghost.isScared = true)
+      setTimeout(unScareGhosts, time_vul_ghosts)
+      squares[pacmanCurrentIndex].classList.remove('power-pellet')
+
     }
   }
 
@@ -228,10 +232,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //all my ghosts
   ghosts = [
-    new Ghost("blinky", 348, 100),
-    new Ghost("stinky", 376, 400),
-    new Ghost("inky", 351, 300),
-    new Ghost("clyde", 379, 200),
+    new Ghost('blinky', 348, 100),
+    new Ghost('stinky', 376, 400),
+    new Ghost('inky', 351, 300),
+    new Ghost('clyde', 379, 200)
+
   ];
 
   //draw my ghosts onto the grid
@@ -264,7 +269,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
       //if the ghost is currently scared
       if (ghost.isScared) {
-        squares[ghost.currentIndex].classList.add("scared-ghost");
+
+        squares[ghost.currentIndex].classList.add('scared-ghost')
+        //fonctionnality to "flashing ghosts" when they are scared
+        squares[ghost.currentIndex].style.opacity = "1"
+        //decrease the brightness
+        if(squares[ghost.currentIndex].style.opacity=="1"&&clock_flash_ghost%2==1){
+          squares[ghost.currentIndex].style.opacity = "0.2"  
+        }
+        //increase the brightness
+        if(squares[ghost.currentIndex].style.opacity=="0.2"&&clock_flash_ghost%2==0){
+          squares[ghost.currentIndex].style.opacity = "1"  
+        }
+        clock_flash_ghost=clock_flash_ghost+1 
+      }else{
+        squares[ghost.currentIndex].style.opacity = "1"
+        clock_flash_ghost = 1
+
       }
 
       //if the ghost is currently scared and pacman is on it
@@ -309,4 +330,5 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 500);
     }
   }
+
 });
