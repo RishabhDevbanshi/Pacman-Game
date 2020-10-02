@@ -86,3 +86,23 @@ h2{
 .high-score{
   color: red;
 }
+
+.controls {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.control-buttons {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  margin: 1px;
+}
+
+.control-break {
+  flex-basis: 100%;
+  height: 0;
+}

@@ -316,4 +316,29 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 500);
     }
   }
+
+  // Setup on screen button listeners
+  const upButton = document.getElementById('up');
+  const downButton = document.getElementById('down');
+  const leftButton = document.getElementById('left');
+  const rightButton = document.getElementById('right');
+
+  // Setup generator function, that emulates key press
+  // This can be done by calling setPacmanVelocity with an object only containing a keycode property
+  // This is possible because the setPacmanVelocity function only uses the keyCode property
+  // To dertermine what key was pressed, and then what direction pacman should move
+
+  // keyCodes:
+  // Up: 38
+  // Down: 40
+  // Left: 37
+  // Right: 39
+
+  const sendKeyboardInput = (keyCode) => () => setPacmanVelocity({ keyCode });
+
+
+  upButton.addEventListener('click', sendKeyboardInput(38));
+  downButton.addEventListener('click', sendKeyboardInput(40));
+  leftButton.addEventListener('click', sendKeyboardInput(37));
+  rightButton.addEventListener('click', sendKeyboardInput(39));
 });
