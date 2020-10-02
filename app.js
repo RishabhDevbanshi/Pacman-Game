@@ -127,6 +127,55 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(pacmanVelocity, e.keyCode);
   }
 
+  // set button screen control
+  function setPacmanBtnScreen(e) {
+    switch (e.target.id) {
+      case 'btn-left':
+        if (
+            pacmanCurrentIndex % width !== 0 &&
+            !squares[pacmanCurrentIndex - 1].classList.contains("wall") &&
+            !squares[pacmanCurrentIndex - 1].classList.contains("ghost-lair")
+        ) {
+          pacmanVelocity.y = 0;
+          pacmanVelocity.x = 1;
+        }
+        break;
+      case 'btn-up':
+        if (
+            pacmanCurrentIndex - width >= 0 &&
+            !squares[pacmanCurrentIndex - width].classList.contains("wall") &&
+            !squares[pacmanCurrentIndex - width].classList.contains("ghost-lair")
+        ) {
+          pacmanVelocity.y = 0;
+          pacmanVelocity.x = -1;
+        }
+        break;
+      case 'btn-right':
+        if (
+            pacmanCurrentIndex % width < width - 1 &&
+            !squares[pacmanCurrentIndex + 1].classList.contains("wall") &&
+            !squares[pacmanCurrentIndex + 1].classList.contains("ghost-lair")
+        ) {
+          pacmanVelocity.y = 1;
+          pacmanVelocity.x = 0;
+        }
+        break;
+      case 'btn-down':
+        if (
+            pacmanCurrentIndex + width < width * width &&
+            !squares[pacmanCurrentIndex + width].classList.contains("wall") &&
+            !squares[pacmanCurrentIndex + width].classList.contains("ghost-lair")
+        ) {
+          pacmanVelocity.y = -1;
+          pacmanVelocity.x = 0;
+        }
+        break;
+    }
+    checkForGameOver();
+  }
+
+  document.addEventListener("click", setPacmanBtnScreen);
+
   //move pacman
   function movePacman() {
     squares[pacmanCurrentIndex].classList.remove("pac-man");
