@@ -8,6 +8,7 @@ body {
   width: 560px;
   height: 560px;
   border: solid black;
+  float: left;
 }
 
 .grid div {
@@ -16,7 +17,7 @@ body {
 }
 
 .power-pellet{
-  background-color: green;
+  background-color: black;
   border-radius: 10px;
 }
 
@@ -60,5 +61,11 @@ body {
 .pac-man{
   background-color: yellow;
   border-radius: 10px;
+}
+.score{
+	position: relative;
+    left: 24%;
+    top: 43vh;
+    width: 0px;
 }
 
