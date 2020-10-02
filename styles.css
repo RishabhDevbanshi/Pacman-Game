@@ -21,6 +21,9 @@ img {
   padding-right: 30%;
 }
 .grid{
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-wrap: wrap;
   width: 560px;
@@ -33,6 +36,7 @@ img {
   width: 20px;
   height: 20px;
 }
+
 
 .power-pellet{
   background-color: #FFAAA4;
@@ -48,40 +52,51 @@ img {
   content: "•";
 }
 
-.blinky{
+.blinky {
   background-color: red;
 }
 
+
 .stinky{
-  background-color: pink;
+  background-color: rgb(221, 18, 130);
 }
 
 .inky{
-  background-color: cyan;
+  background-color: rgb(15, 214, 204);
 }
 
 .clyde{
-  background-color: orange;
+  background-color: rgb(243, 125, 78);
 }
 
-.ghost{
+.ghost {
   border: 0px;
   border-radius: 0px;
 }
 
-.scared-ghost{
+.scared-ghost {
   background-color: purple;
   border: 0px;
   border-radius: 0px;
 }
 
 .wall{
-  background-color: blue;
+  background-color: rgb(8, 14, 102);
 }
 
 .pac-man{
-  background-color: yellow;
+  background-color: rgb(247, 232, 22);
   border-radius: 10px;
+}
+h2{
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+
+}
+
+.low-score{
+  color: red;
 }
 
 h3 {
@@ -152,3 +167,12 @@ button:hover span:after {
   align-content: center;
   padding: 30px;
 }
+
+.mid-score{
+  color: yellow;
+}
+
+.high-score{
+  color: red;
+}
+
