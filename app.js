@@ -75,56 +75,104 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // console.log(getCoordinates(pacmanCurrentIndex))
 
-  //move pacman
+
+
+// move pacman
   function movePacman(e) {
+    console.log(e);
     squares[pacmanCurrentIndex].classList.remove('pac-man')
-    switch(e.keyCode) {
-      case 37:
-        if(
-          pacmanCurrentIndex % width !== 0 &&
-          !squares[pacmanCurrentIndex -1].classList.contains('wall') &&
-          !squares[pacmanCurrentIndex -1].classList.contains('ghost-lair')
-          )
-        pacmanCurrentIndex -= 1
-        if (squares[pacmanCurrentIndex -1] === squares[363]) {
-          pacmanCurrentIndex = 391
-        }
-        break
-      case 38:
-        if(
-          pacmanCurrentIndex - width >= 0 &&
-          !squares[pacmanCurrentIndex -width].classList.contains('wall') &&
-          !squares[pacmanCurrentIndex -width].classList.contains('ghost-lair')
-          )
-        pacmanCurrentIndex -= width
-        break
-      case 39:
-        if(
-          pacmanCurrentIndex % width < width - 1 &&
-          !squares[pacmanCurrentIndex +1].classList.contains('wall') &&
-          !squares[pacmanCurrentIndex +1].classList.contains('ghost-lair')
+
+    //move pacman left
+    function moveLeft() {
+      if(
+        pacmanCurrentIndex % width !== 0 &&
+        !squares[pacmanCurrentIndex -1].classList.contains('wall') &&
+        !squares[pacmanCurrentIndex -1].classList.contains('ghost-lair')
         )
-        pacmanCurrentIndex += 1
-        if (squares[pacmanCurrentIndex +1] === squares[392]) {
-          pacmanCurrentIndex = 364
-        }
-        break
-      case 40:
-        if (
-          pacmanCurrentIndex + width < width * width &&
-          !squares[pacmanCurrentIndex +width].classList.contains('wall') &&
-          !squares[pacmanCurrentIndex +width].classList.contains('ghost-lair')
+      pacmanCurrentIndex -= 1
+      if (squares[pacmanCurrentIndex -1] === squares[363]) {
+        pacmanCurrentIndex = 391
+      }
+    };
+
+    // move pacman up
+    function moveUp() {
+      if(
+        pacmanCurrentIndex - width >= 0 &&
+        !squares[pacmanCurrentIndex -width].classList.contains('wall') &&
+        !squares[pacmanCurrentIndex -width].classList.contains('ghost-lair')
         )
-        pacmanCurrentIndex += width
-        break
+      pacmanCurrentIndex -= width
+    };
+
+    // move pacman right
+    function moveRight() {
+      if(
+              pacmanCurrentIndex % width < width - 1 &&
+              !squares[pacmanCurrentIndex +1].classList.contains('wall') &&
+              !squares[pacmanCurrentIndex +1].classList.contains('ghost-lair')
+            )
+            pacmanCurrentIndex += 1
+            if (squares[pacmanCurrentIndex +1] === squares[392]) {
+              pacmanCurrentIndex = 364
+            }
     }
+
+    // move pacman down
+    function moveDown() {
+      if (
+              pacmanCurrentIndex + width < width * width &&
+              !squares[pacmanCurrentIndex +width].classList.contains('wall') &&
+              !squares[pacmanCurrentIndex +width].classList.contains('ghost-lair')
+            )
+            pacmanCurrentIndex += width
+    }
+    
+      // move pacman with keys
+    if (e.type === "keyup") {
+      switch(e.keyCode) {
+        case 37:
+          moveLeft();
+          break
+        case 38:
+          moveUp();
+          break
+        case 39:
+          moveRight();
+          break
+        case 40:
+          moveDown();
+          break
+      }
+    } else
+      // move pacman with buttons
+    if (e.type === "click") {
+      switch(e.srcElement.ariaLabel) {
+        case "left":
+          moveLeft();
+          break
+        case "up":
+          moveUp();
+          break
+        case "right":
+          moveRight();
+          break
+        case "down":
+          moveDown();
+          break
+      }
+    }
+    
+
+
     squares[pacmanCurrentIndex].classList.add('pac-man')
     pacDotEaten()
     powerPelletEaten()
     checkForGameOver()
     checkForWin()
   }
-  document.addEventListener('keyup', movePacman)
+  document.addEventListener('keyup', movePacman);
+  document.addEventListener('click', movePacman);
 
   // what happens when you eat a pac-dot
   function pacDotEaten() {
@@ -218,6 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
       !squares[pacmanCurrentIndex].classList.contains('scared-ghost')) {
       ghosts.forEach(ghost => clearInterval(ghost.timerId))
       document.removeEventListener('keyup', movePacman)
+      document.removeEventListener('click', movePacman)
       setTimeout(function(){ alert("Game Over"); }, 500)
     }
   }
@@ -227,6 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (score === 274) {
       ghosts.forEach(ghost => clearInterval(ghost.timerId))
       document.removeEventListener('keyup', movePacman)
+      document.removeEventListener('click', movePacman)
       setTimeout(function(){ alert("You have WON!"); }, 500)
     }
   }
