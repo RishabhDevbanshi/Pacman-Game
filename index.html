@@ -10,11 +10,22 @@
     <div class="overlay-screen" id="start-screen">
       <h1>PACMAN</h1>
       <h2 id="start-msg">Press ENTER to start</h2>
-      <h2>Use arrow keys to move</h2>
+      <h2>Use arrow keys or buttons provided to move.</h2>
     </div>
     <div class="game-container">
+      <div class="img">
+        <img src="pacman.png" width="560px" alt="..." />
+      </div>
       <div class="grid"></div>
-      <h2>Score:<span id="score">0</span></h2>
+      <h2>Score: <span id="score">0</span></h2>
+      <div id="control-pad">
+        <div id="top">
+          <button aria-label="left">&#8679;</button>
+        </div>
+        <button aria-label="right">&#8678;</button>
+        <button aria-label="down">&#8681;</button>
+        <button aria-label="up">&#8680;</button>
+      </div>
     </div>
     <div class="overlay-screen" id="game-over-screen">
       <span>GAME OVER!</span>
