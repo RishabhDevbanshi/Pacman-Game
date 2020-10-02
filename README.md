@@ -2,6 +2,8 @@
 
 PacmanJs is a Javascript, HTML and Css based game that enable you to play with the most carismatic 80's character ever created.
 
+![Screenshot](screenshot1.JPG)
+
 ## Installation/Execute
 
 Just clone the repository and run the game setting start index.html on terminal:
