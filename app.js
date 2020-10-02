@@ -253,7 +253,21 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
   //move the Ghosts randomly
-  ghosts.forEach(ghost => moveGhost(ghost))
+  // ghosts.forEach(ghost => moveGhost(ghost))
+/**
+   * update: Adding Homepage
+   * powered by: joz-bruer Quince
+   * email: quincejozbruer@gmail.com
+   * github: github.com/the-german
+   */
+
+  const start = document.querySelector('#start')
+  const modal = document.querySelector('.modal-container')
+
+  start.addEventListener('click', ()=>{
+    modal.classList.add('disabled')
+    ghosts.forEach(ghost => moveGhost(ghost))
+  })
 
   function moveGhost(ghost) {
     const directions =  [-1, +1, width, -width]
