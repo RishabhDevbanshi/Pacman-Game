@@ -1,5 +1,8 @@
 body {
   background-color:black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 
@@ -83,10 +86,10 @@ body {
   border-radius: 10px;
 }
 h2{
+  position: relative;
   color: white;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-align: center;
-
+  left: 2vw;
 }
 
 .low-score{
@@ -103,19 +106,21 @@ h2{
 
 #controlpannel{
   position: relative;
-  display: grid;
-  left:75vw;
-  bottom: 17vh;
-  /* background-color: chartreuse; */
+  display: grid; 
+  bottom: 2vh;
   height: 10vh;
   width: 16vw;
   grid-template-rows: 10fr 10fr;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-left:5vw ;
 }
 
 .dirButton{
   margin: 0.5vh;
   opacity: 0.6;
+  background-size: 100% 100%;
+  width:4.2vw;
+  height:4.2vw;
 }
 
 .dirButton:hover{
@@ -124,32 +129,20 @@ h2{
 
 #up{
   background-image:url("buttonimages/up.png") ;
-  background-size: 100% 100%;
-  width:4.2vw;
-  height:4.2vw;
   grid-column: 2 / 3;
 }
 #down{
   background-image:url("buttonimages/down.png") ;
-  background-size: 100% 100%;
-  width:4.2vw;
-  height:4.2vw;
   grid-column: 2 / 3;
   grid-row: 2/3;
 }
 #left{
   background-image:url("buttonimages/left.png") ;
-  background-size: 100% 100%;
-  width:4.2vw;
-  height:4.2vw;
   grid-column: 1 / 2;
   grid-row: 2/3;
 }
 #right{
   background-image:url("buttonimages/right.png") ;
-  background-size: 100% 100%;
-  width:4.2vw;
-  height:4.2vw;
   grid-column: 3 / 4;
   grid-row: 2/3;
 }
