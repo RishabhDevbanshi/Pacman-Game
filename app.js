@@ -836,6 +836,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // set pacman velocity
   function setPacmanVelocity(e) {
+    if (e.target.id === 'btn-left') {
+      e.keyCode = 37;
+    } else if (e.target.id === 'btn-up') {
+      e.keyCode = 38;
+    } else if (e.target.id === 'btn-right') {
+      e.keyCode = 39;
+    } else if (e.target.id === 'btn-down') {
+      e.keyCode = 40;
+    }
     switch (e.keyCode) {
       case 37:
         if (
@@ -882,54 +891,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(pacmanVelocity, e.keyCode);
   }
 
-  // set button screen control
-  function setPacmanBtnScreen(e) {
-    switch (e.target.id) {
-      case 'btn-left':
-        if (
-            pacmanCurrentIndex % width !== 0 &&
-            !squares[pacmanCurrentIndex - 1].classList.contains("wall") &&
-            !squares[pacmanCurrentIndex - 1].classList.contains("ghost-lair")
-        ) {
-          pacmanVelocity.y = 0;
-          pacmanVelocity.x = 1;
-        }
-        break;
-      case 'btn-up':
-        if (
-            pacmanCurrentIndex - width >= 0 &&
-            !squares[pacmanCurrentIndex - width].classList.contains("wall") &&
-            !squares[pacmanCurrentIndex - width].classList.contains("ghost-lair")
-        ) {
-          pacmanVelocity.y = 0;
-          pacmanVelocity.x = -1;
-        }
-        break;
-      case 'btn-right':
-        if (
-            pacmanCurrentIndex % width < width - 1 &&
-            !squares[pacmanCurrentIndex + 1].classList.contains("wall") &&
-            !squares[pacmanCurrentIndex + 1].classList.contains("ghost-lair")
-        ) {
-          pacmanVelocity.y = 1;
-          pacmanVelocity.x = 0;
-        }
-        break;
-      case 'btn-down':
-        if (
-            pacmanCurrentIndex + width < width * width &&
-            !squares[pacmanCurrentIndex + width].classList.contains("wall") &&
-            !squares[pacmanCurrentIndex + width].classList.contains("ghost-lair")
-        ) {
-          pacmanVelocity.y = -1;
-          pacmanVelocity.x = 0;
-        }
-        break;
-    }
-    checkForGameOver();
-  }
-
-  document.addEventListener("click", setPacmanBtnScreen);
+  document.addEventListener("click", setPacmanVelocity);
 
   //move pacman
   function movePacman() {
