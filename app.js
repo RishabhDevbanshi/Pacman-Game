@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const grid = document.querySelector(".grid");
   let winScore = null;
   let layout = null;
+  let pacmanCurrentIndex = null;
+  let ghostPos = [];
   const levels = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
                    1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1,
@@ -17,12 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
                    1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1,
                    1, 1, 1, 1, 1, 1, 0, 1, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 1, 0, 1, 1, 1, 1, 1, 1,
                    1, 1, 1, 1, 1, 1, 0, 1, 1, 4, 1, 1, 1, 2, 2, 1, 1, 1, 4, 1, 1, 0, 1, 1, 1, 1, 1, 1,
-                   1, 1, 1, 1, 1, 1, 0, 1, 1, 4, 1, 2, 2, 2, 2, 2, 2, 1, 4, 1, 1, 0, 1, 1, 1, 1, 1, 1,
-                   4, 4, 4, 4, 4, 4, 0, 0, 0, 4, 1, 2, 2, 2, 2, 2, 2, 1, 4, 0, 0, 0, 4, 4, 4, 4, 4, 4,
-                   1, 1, 1, 1, 1, 1, 0, 1, 1, 4, 1, 2, 2, 2, 2, 2, 2, 1, 4, 1, 1, 0, 1, 1, 1, 1, 1, 1,
+                   1, 1, 1, 1, 1, 1, 0, 1, 1, 4, 1, 2, 2, 2, 5, 2, 5, 1, 4, 1, 1, 0, 1, 1, 1, 1, 1, 1,
+                   4, 4, 4, 4, 4, 4, 0, 0, 0, 4, 1, 2, 5, 2, 2, 2, 2, 1, 4, 0, 0, 0, 4, 4, 4, 4, 4, 4,
+                   1, 1, 1, 1, 1, 1, 0, 1, 1, 4, 1, 2, 5, 2, 2, 2, 2, 1, 4, 1, 1, 0, 1, 1, 1, 1, 1, 1,
                    1, 1, 1, 1, 1, 1, 0, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 0, 1, 1, 1, 1, 1, 1,
                    1, 1, 1, 1, 1, 1, 0, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1, 4, 1, 1, 0, 1, 1, 1, 1, 1, 1,
-                   1, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+                   1, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 6, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 1,
                    1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1,
                    1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1,
                    1, 3, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 3, 1,
@@ -40,7 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2 - ghost-lair
   // 3 - power-pellet
   // 4 - empty
-
+  // 5 - ghosts
+  // 6 - pacman
   const squares = [];
 
   //create your board
@@ -60,6 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
         squares[i].classList.add("ghost-lair");
       } else if (layout[i] === 3) {
         squares[i].classList.add("power-pellet");
+      } else if (layout[i] === 5){
+        ghostPos.push(i)
+      } else if (layout[i] === 6) {
+        pacmanCurrentIndex = i;
       }
     }
   }
@@ -67,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //create Characters
   //draw pacman onto the board
-  let pacmanCurrentIndex = 490;
   let pacmanVelocity = {
     x: 0,
     y: 0,
@@ -236,10 +242,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //all my ghosts
   ghosts = [
-    new Ghost("blinky", 348, 100),
-    new Ghost("stinky", 376, 400),
-    new Ghost("inky", 351, 300),
-    new Ghost("clyde", 379, 200),
+    new Ghost("blinky", ghostPos[0], 100),
+    new Ghost("stinky", ghostPos[1], 400),
+    new Ghost("inky", ghostPos[2], 300),
+    new Ghost("clyde", ghostPos[3], 200),
   ];
 
   //draw my ghosts onto the grid
