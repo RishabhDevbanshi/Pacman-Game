@@ -1,4 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
+  var HighestScore = localStorage.getItem("HighestScore");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if(HighestScore === 'null')
+      document.getElementById("high-score").innerHTML = "0";
+    else
+      document.getElementById("high-score").innerHTML = HighestScore;
   const scoreDisplay = document.getElementById("score");
   const width = 28;
   let score = 0;
@@ -789,12 +795,32 @@ document.addEventListener("DOMContentLoaded", () => {
     1,
     1,
   ];
+
+  function checkForGameOver() {
+    if (
+      squares[pacmanCurrentIndex].classList.contains("ghost") &&
+      !squares[pacmanCurrentIndex].classList.contains("scared-ghost")
+    ) {
+      ghosts.forEach((ghost) => clearInterval(ghost.timerId));
+      document.removeEventListener("keyup", movePacman);
+      pacmanVelocity.x = 0;
+      pacmanVelocity.y = 0;
+      if(HighestScore < score){
+          localStorage.setItem("HighestScore", score);
+        }
+      document.getElementById("high-score").innerHTML = HighestScore;
+      //display game over screen and refresh after 3s to rest game
+      document.getElementById("game-over-screen").style.display = "flex";
+      setTimeout(function () {
+        window.location.reload();
+      }, 3000);
+    }
+  }
   // 0 - pac-dots
   // 1 - wall
   // 2 - ghost-lair
   // 3 - power-pellet
   // 4 - empty
-
   const squares = [];
 
   //create your board
@@ -1044,22 +1070,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   //check for a game over
-  function checkForGameOver() {
-    if (
-      squares[pacmanCurrentIndex].classList.contains("ghost") &&
-      !squares[pacmanCurrentIndex].classList.contains("scared-ghost")
-    ) {
-      ghosts.forEach((ghost) => clearInterval(ghost.timerId));
-      document.removeEventListener("keyup", movePacman);
-      pacmanVelocity.x = 0;
-      pacmanVelocity.y = 0;
-      //display game over screen and refresh after 3s to rest game
-      document.getElementById("game-over-screen").style.display = "flex";
-      setTimeout(function () {
-        window.location.reload();
-      }, 3000);
-    }
-  }
 
   //check for a win - more is when this score is reached
   function checkForWin() {
