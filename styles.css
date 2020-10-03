@@ -19,7 +19,7 @@ body {
 
 .game-container {
   width: 100%;
-  height: 100vh;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -188,4 +188,34 @@ h2 {
   99% {
     opacity: 0;
   }
+}
+
+.buttons{
+  position: absolute;
+  height: auto;
+  width:auto;
+  bottom:1.5%;
+  left:50%;
+  transform: translateX(-50%);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+.arrow-btn{
+  height: 50px;
+  width: 50px;
+  cursor:pointer;
+  font-size:150%;
+  border:1px solid black;
+  transition: 0.3s;
+  border-radius:3px;
+  margin:0;
+}
+.arrow-btn:hover{
+  background-color: #222;
+  color:white;
+}
+.btnup{
+  margin-bottom:10px;
 }

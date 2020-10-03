@@ -834,10 +834,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // console.log(getCoordinates(pacmanCurrentIndex))
 
+
+  document.getElementById("btnup").addEventListener('click', function(){setPacmanVelocity('up')})
+  document.getElementById("btndown").addEventListener("click", function(){setPacmanVelocity('down')})
+  document.getElementById("btnleft").addEventListener("click", function(){setPacmanVelocity('left')})
+  document.getElementById("btnright").addEventListener("click", function(){setPacmanVelocity('right')})
+
+
   // set pacman velocity
-  function setPacmanVelocity(e) {
-    switch (e.keyCode) {
-      case 37:
+  function setPacmanVelocity(val) {
+    switch (true) {
+      case (event.keyCode == 37 || val == 'left'):
         if (
           pacmanCurrentIndex % width !== 0 &&
           !squares[pacmanCurrentIndex - 1].classList.contains("wall") &&
@@ -847,7 +854,7 @@ document.addEventListener("DOMContentLoaded", () => {
           pacmanVelocity.x = 1;
         }
         break;
-      case 38:
+      case (event.keyCode == 38 || val == 'up'):
         if (
           pacmanCurrentIndex - width >= 0 &&
           !squares[pacmanCurrentIndex - width].classList.contains("wall") &&
@@ -857,7 +864,7 @@ document.addEventListener("DOMContentLoaded", () => {
           pacmanVelocity.x = -1;
         }
         break;
-      case 39:
+      case (event.keyCode == 39 || val == 'right'):
         if (
           pacmanCurrentIndex % width < width - 1 &&
           !squares[pacmanCurrentIndex + 1].classList.contains("wall") &&
@@ -867,7 +874,7 @@ document.addEventListener("DOMContentLoaded", () => {
           pacmanVelocity.x = 0;
         }
         break;
-      case 40:
+      case (event.keyCode == 40 || val == 'down'):
         if (
           pacmanCurrentIndex + width < width * width &&
           !squares[pacmanCurrentIndex + width].classList.contains("wall") &&
@@ -879,7 +886,7 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
     }
     checkForGameOver();
-    console.log(pacmanVelocity, e.keyCode);
+    console.log(pacmanVelocity, event.keyCode || val);
   }
 
   //move pacman
@@ -1051,6 +1058,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
       ghosts.forEach((ghost) => clearInterval(ghost.timerId));
       document.removeEventListener("keyup", movePacman);
+      document.getElementById("btnup").removeEventListener('click', function(){setPacmanVelocity('up')})
+      document.getElementById("btndown").removeEventListener("click", function(){setPacmanVelocity('down')})
+      document.getElementById("btnleft").removeEventListener("click", function(){setPacmanVelocity('left')})
+      document.getElementById("btnright").removeEventListener("click", function(){setPacmanVelocity('right')})
       pacmanVelocity.x = 0;
       pacmanVelocity.y = 0;
       //display game over screen and refresh after 3s to rest game
@@ -1082,6 +1093,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.removeEventListener("keydown", startGame);
       //remove start screen
       document.getElementById("start-screen").style.display = "none";
+      document.querySelector('.buttons').style.display = 'flex'
       //set pacman velocity and enable movement
       document.addEventListener("keyup", setPacmanVelocity);
       movePacman();
