@@ -106,6 +106,10 @@ h2 {
   color: red;
 }
 
+#load{
+  height: 300px;
+  width: 300px;
+}
 #start-screen {
   background-color: black;
   color: white;
@@ -116,7 +120,7 @@ h2 {
 #start-screen h1 {
   color: yellow;
   font-size: 4rem;
-  margin-top: 40vh;
+  margin-top: 10vh;
   margin-bottom: 40px;
   animation: colours 1s infinite;
 }
