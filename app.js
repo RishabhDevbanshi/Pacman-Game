@@ -833,10 +833,26 @@ document.addEventListener("DOMContentLoaded", () => {
     if (dif == 1) {
         document.getElementById("difficulty-text").innerText = 'Easy';
         pacmanSpeed = 300; // set pacman Speed
+        // 4 ghost for this dfficulty
+        ghosts = [
+            new Ghost("blinky", 348, 100),
+            new Ghost("stinky", 376, 400),
+            new Ghost("inky", 351, 300),
+            new Ghost("clyde", 379, 200),
+          ];
     }
     else if (dif == 2) {
         document.getElementById("difficulty-text").innerText = 'Medium';
         pacmanSpeed = 150
+        // 6 ghost for this dfficulty (2 are faster than the easy 4)
+        ghosts = [
+            new Ghost("blinky", 348, 100),
+            new Ghost("stinky", 376, 400),
+            new Ghost("inky", 351, 300),
+            new Ghost("clyde", 379, 200),
+            new Ghost("blinky", 348, 200), // faster version of blinky
+            new Ghost("stinky", 376, 800), // faster version of stinky
+          ];
     }
   }, false);
 
@@ -852,10 +868,30 @@ document.addEventListener("DOMContentLoaded", () => {
     if (dif == 2) {
         document.getElementById("difficulty-text").innerText = 'Medium';
         pacmanSpeed = 150
+        // 6 ghost for this dfficulty
+        ghosts = [
+            new Ghost("blinky", 348, 100),
+            new Ghost("stinky", 376, 400),
+            new Ghost("inky", 351, 300),
+            new Ghost("clyde", 379, 200),
+            new Ghost("blinky", 348, 200), // faster version of blinky
+            new Ghost("stinky", 376, 800), // faster version of stinky
+          ];
     }
     else if (dif == 3) {
         document.getElementById("difficulty-text").innerText = 'Hard';
         pacmanSpeed = 50
+        // 8 ghost for this dfficulty
+        ghosts = [
+            new Ghost("blinky", 348, 100),
+            new Ghost("stinky", 376, 400),
+            new Ghost("inky", 351, 300),
+            new Ghost("clyde", 379, 200),
+            new Ghost("blinky", 348, 200), // faster version of blinky
+            new Ghost("stinky", 376, 800), // faster version of stinky
+            new Ghost("inky", 351, 600),   // faster version of inky
+            new Ghost("clyde", 379, 400),  // faster version of clyde
+          ];
     }
   }, false);
 
@@ -1029,7 +1065,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  //all my ghosts
+  //all my ghosts - These ghosts are default should anything happen and difficulty settings fails :-)
   ghosts = [
     new Ghost("blinky", 348, 100),
     new Ghost("stinky", 376, 400),
