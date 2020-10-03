@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "PressStart2P";
-  src: url("./fonts/PressStart2P.ttf");
+  font-family: 'PressStart2P';
+  src: url('./fonts/PressStart2P.ttf');
 }
 
 * {
@@ -9,8 +9,8 @@
 }
 
 body {
-  font-family: "PressStart2P", sans-serif;
-  background-color: black;
+  font-family: 'PressStart2P', sans-serif;
+  background: linear-gradient(180deg, #020109 0%, #000b49 48.96%, #03010b 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,6 +24,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  z-index: -1;
 }
 
 .grid {
@@ -54,40 +55,210 @@ body {
 }
 
 .blinky {
+  position: relative;
   background-color: red;
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+}
+
+.blinky::after {
+  content: '';
+  background-color: #ffffff;
+  padding: 1px;
+  border-radius: 50%;
+  height: 2px;
+  left: 3px;
+  top: 5px;
+  width: 3px;
+  position: absolute;
+}
+
+.blinky::before {
+  content: '';
+  background-color: #ffffff;
+  padding: 1px;
+  border-radius: 50%;
+  height: 2px;
+  right: 3px;
+  top: 5px;
+  width: 3px;
+  position: absolute;
 }
 
 .stinky {
+  position: relative;
   background-color: rgb(221, 18, 130);
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+}
+
+.stinky::after {
+  content: '';
+  background-color: #ffffff;
+  padding: 1px;
+  border-radius: 50%;
+  height: 2px;
+  left: 3px;
+  top: 5px;
+  width: 3px;
+  position: absolute;
+}
+
+.stinky::before {
+  content: '';
+  background-color: #ffffff;
+  padding: 1px;
+  border-radius: 50%;
+  height: 2px;
+  right: 3px;
+  top: 5px;
+  width: 3px;
+  position: absolute;
 }
 
 .inky {
   background-color: rgb(15, 214, 204);
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+  position: relative;
+}
+
+.inky::after {
+  content: '';
+  background-color: #ffffff;
+  padding: 1px;
+  border-radius: 50%;
+  height: 2px;
+  left: 3px;
+  top: 5px;
+  width: 3px;
+  position: absolute;
+}
+
+.inky::before {
+  content: '';
+  background-color: #ffffff;
+  padding: 1px;
+  border-radius: 50%;
+  height: 2px;
+  right: 3px;
+  top: 5px;
+  width: 3px;
+  position: absolute;
 }
 
 .clyde {
   background-color: rgb(243, 125, 78);
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+  position: relative;
+}
+
+.clyde::after {
+  content: '';
+  background-color: #ffffff;
+  padding: 1px;
+  border-radius: 50%;
+  height: 2px;
+  left: 3px;
+  top: 5px;
+  width: 3px;
+  position: absolute;
+}
+
+.clyde::before {
+  content: '';
+  background-color: #ffffff;
+  padding: 1px;
+  border-radius: 50%;
+  height: 2px;
+  right: 3px;
+  top: 5px;
+  width: 3px;
+  position: absolute;
 }
 
 .ghost {
   border: 0px;
-  border-radius: 0px;
+}
+
+.ghost ::after {
+  content: '';
+  background-color: #ffffff;
+  padding: 1px;
+  border-radius: 50%;
+  height: 2px;
+  left: 3px;
+  top: 5px;
+  width: 3px;
+  position: absolute;
+}
+
+.ghost ::before {
+  content: '';
+  background-color: #ffffff;
+  padding: 1px;
+  border-radius: 50%;
+  height: 2px;
+  right: 3px;
+  top: 5px;
+  width: 3px;
+  position: absolute;
 }
 
 .scared-ghost {
   background-color: purple;
-  border: 0px;
-  border-radius: 0px;
+  position: relative;
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+}
+
+.scared-ghost::after {
+  content: '';
+  background-color: #ffffff;
+  padding: 1px;
+  border-radius: 50%;
+  height: 2px;
+  left: 3px;
+  top: 5px;
+  width: 3px;
+  position: absolute;
+}
+
+.scared-ghost::before {
+  content: '';
+  background-color: #ffffff;
+  padding: 1px;
+  border-radius: 50%;
+  height: 2px;
+  right: 3px;
+  top: 5px;
+  width: 3px;
+  position: absolute;
 }
 
 .wall {
-  background-color: rgb(8, 14, 102);
+  background-color: rgb(0 24 109);
 }
 
 .pac-man {
   background-color: rgb(247, 232, 22);
   border-radius: 10px;
+  position: relative;
 }
+
+/* .pac-man::before {
+  content: '';
+  background-color: #ffffff;
+  padding: 1px;
+  border-radius: 50%;
+  height: 2px;
+  right: 3px;
+  top: 5px;
+  width: 3px;
+  position: absolute;
+} */
+
 h2 {
   color: white;
   font-weight: normal;
@@ -107,7 +278,12 @@ h2 {
 }
 
 #start-screen {
+  background-image: url(./assets/bg.png);
   background-color: black;
+  height: 100vh;
+  background-position: center;
+  background-repeat: initial;
+  background-size: inherit;
   color: white;
   flex-direction: column;
   align-items: center;
