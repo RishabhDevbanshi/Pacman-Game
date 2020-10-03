@@ -151,12 +151,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //create ghosts using Constructors
+  //Add a Color to the ghost component
   class Ghost {
-    constructor(className, startIndex, speed, color) {
+    constructor(className, startIndex, speed) {
       this.className = className
       this.startIndex = startIndex
       this.speed = speed
-      this.color = color
       this.currentIndex = startIndex
       this.isScared = false
       this.timerId = NaN
@@ -166,10 +166,10 @@ document.addEventListener('DOMContentLoaded', () => {
   //all my ghosts
   //added color to the Ghost
   ghosts = [
-    new Ghost('blinky', 348, 100, rgb(255, 0, 0)),
-    new Ghost('stinky', 376, 400, rgb(255, 184, 255)),
-    new Ghost('inky', 351, 300, rgb(0, 255, 255)),
-    new Ghost('clyde', 379, 200, rgb(255, 184, 82))
+    new Ghost('blinky', 348, 100),
+    new Ghost('stinky', 376, 400),
+    new Ghost('inky', 351, 300),
+    new Ghost('clyde', 379, 200)
     ]
 
   //draw my ghosts onto the grid
