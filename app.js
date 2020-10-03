@@ -859,7 +859,6 @@ document.addEventListener("DOMContentLoaded", () => {
   var rightArrow = document.getElementById("right-arrow");
   rightArrow.addEventListener("click", function(){
     dif = ++dif;
-    console.log(dif);
     // ensure that dif dosen't go above three
     if (dif >= 4) {
         dif = 3;
