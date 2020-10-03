@@ -976,6 +976,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   //create ghosts using Constructors
+  //Add a Color to the ghost component
   class Ghost {
     constructor(className, startIndex, speed) {
       this.className = className;
@@ -988,6 +989,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   //all my ghosts
+  //added color to the Ghost
   ghosts = [
     new Ghost("blinky", 348, 100),
     new Ghost("stinky", 376, 400),
