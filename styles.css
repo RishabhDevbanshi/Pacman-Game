@@ -154,6 +154,16 @@ h2 {
   display: flex;
 }
 
+#left-arrow:hover {
+  font-size: 1rem;
+  color: yellow;
+}
+
+#right-arrow:hover {
+  font-size: 1rem;
+  color: yellow;
+}
+
 @keyframes colours {
   0% {
     color: yellow;

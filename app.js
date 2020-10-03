@@ -818,6 +818,84 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   createBoard();
 
+  // difficulty setting
+  var dif = 1; // 1 = easy (default), 2 = medium, 3 = hard
+  var pacmanSpeed = 300; // this is the default pacman Speed
+
+  var leftArrow = document.getElementById("left-arrow");
+  leftArrow.addEventListener("click", function(){
+    dif = --dif;
+    // just ensure that dif dosen't get set to 0
+    if (dif <= 0) {
+        dif = 1;
+        pacmanSpeed = 300; // re-enforce default pacman Speed
+    }
+    if (dif == 1) {
+        document.getElementById("difficulty-text").innerText = 'Easy';
+        pacmanSpeed = 300; // set pacman Speed
+        // 4 ghost for this dfficulty
+        ghosts = [
+            new Ghost("blinky", 348, 100),
+            new Ghost("stinky", 376, 400),
+            new Ghost("inky", 351, 300),
+            new Ghost("clyde", 379, 200),
+          ];
+    }
+    else if (dif == 2) {
+        document.getElementById("difficulty-text").innerText = 'Medium';
+        pacmanSpeed = 150
+        // 6 ghost for this dfficulty (2 are faster than the easy 4)
+        ghosts = [
+            new Ghost("blinky", 348, 100),
+            new Ghost("stinky", 376, 400),
+            new Ghost("inky", 351, 300),
+            new Ghost("clyde", 379, 200),
+            new Ghost("blinky", 348, 200), // faster version of blinky
+            new Ghost("stinky", 376, 800), // faster version of stinky
+          ];
+    }
+  }, false);
+
+  var rightArrow = document.getElementById("right-arrow");
+  rightArrow.addEventListener("click", function(){
+    dif = ++dif;
+    // ensure that dif dosen't go above three
+    if (dif >= 4) {
+        dif = 3;
+        pacmanSpeed = 50 // re-enforce pacman Speed for the last deficulty
+    }
+    if (dif == 2) {
+        document.getElementById("difficulty-text").innerText = 'Medium';
+        pacmanSpeed = 150
+        // 6 ghost for this dfficulty
+        ghosts = [
+            new Ghost("blinky", 348, 100),
+            new Ghost("stinky", 376, 400),
+            new Ghost("inky", 351, 300),
+            new Ghost("clyde", 379, 200),
+            new Ghost("blinky", 348, 200), // faster version of blinky
+            new Ghost("stinky", 376, 800), // faster version of stinky
+          ];
+    }
+    else if (dif == 3) {
+        document.getElementById("difficulty-text").innerText = 'Hard';
+        pacmanSpeed = 50
+        // 8 ghost for this dfficulty
+        ghosts = [
+            new Ghost("blinky", 348, 100),
+            new Ghost("stinky", 376, 400),
+            new Ghost("inky", 351, 300),
+            new Ghost("clyde", 379, 200),
+            new Ghost("blinky", 348, 200), // faster version of blinky
+            new Ghost("stinky", 376, 800), // faster version of stinky
+            new Ghost("inky", 351, 600),   // faster version of inky
+            new Ghost("clyde", 379, 400),  // faster version of clyde
+          ];
+    }
+  }, false);
+
+  // difficulty settings ends here
+
   //create Characters
   //draw pacman onto the board
   let pacmanCurrentIndex = 490;
@@ -825,7 +903,6 @@ document.addEventListener("DOMContentLoaded", () => {
     x: 0,
     y: 0,
   };
-  const pacmanSpeed = 200;
   squares[pacmanCurrentIndex].classList.add("pac-man");
   //get the coordinates of pacman on the grid with X and Y axis
   // function getCoordinates(index) {
@@ -987,7 +1064,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  //all my ghosts
+  //all my ghosts - These ghosts are default should anything happen and difficulty settings fails :-)
   ghosts = [
     new Ghost("blinky", 348, 100),
     new Ghost("stinky", 376, 400),
