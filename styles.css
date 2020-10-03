@@ -135,6 +135,7 @@ h2 {
   font-size: 6rem;
   justify-content: center;
   animation: blink 0.8s infinite;
+  animation: colours 1s infinite;
   display: none;
 }
 
@@ -144,6 +145,7 @@ h2 {
   font-size: 6rem;
   justify-content: center;
   animation: blink 0.8s infinite;
+  animation: colours 1s infinite;
   display: none;
 }
 
