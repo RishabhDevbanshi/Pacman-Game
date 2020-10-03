@@ -815,6 +815,28 @@ document.addEventListener("DOMContentLoaded", () => {
         squares[i].classList.add("power-pellet");
       }
     }
+
+    //array of button names & generating the buttons on the screen
+    const Buttons = ["Left", "Up", "Down", "Right"];
+    const buttonContainer = document.createElement('div')
+    buttonContainer.className = "button-container";
+
+    Buttons.forEach((button) => {
+      const but = document.createElement('button')
+
+      //class names & design options
+      but.className = "control-buttons"
+      but.id = button
+      but.innerText = button
+      /* but.style.width = "40px";
+      but.style.height = "25px";
+      but.style.border = "none";
+      but.style.backgroundColor = 'rgb(8, 14, 102)';
+      but.style.color = 'white'; */
+
+      buttonContainer.appendChild(but)
+    })
+    document.body.appendChild(buttonContainer)
   }
   createBoard();
 
@@ -880,6 +902,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     checkForGameOver();
     console.log(pacmanVelocity, e.keyCode);
+  }
+
+  //control function for the buttons on screen
+  function screenButtonControl() {
+    const buttons = document.querySelectorAll('.control-buttons')
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        let direction = {};
+        const {
+          id
+        } = button;
+
+        if (id == "Left") direction.keyCode = 37;
+        else if (id == "Up") direction.keyCode = 38;
+        else if (id == "Down") direction.keyCode = 40;
+        else direction.keyCode = 39;
+
+        setPacmanVelocity(direction)
+      })
+    })
   }
 
   //move pacman
@@ -1084,6 +1126,9 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("start-screen").style.display = "none";
       //set pacman velocity and enable movement
       document.addEventListener("keyup", setPacmanVelocity);
+      //button controls
+      screenButtonControl();
+
       movePacman();
       // move the Ghosts randomly
       ghosts.forEach((ghost) => moveGhost(ghost));

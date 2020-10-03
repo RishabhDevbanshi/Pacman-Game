@@ -153,6 +153,24 @@ h2 {
   height: 100vh;
   display: flex;
 }
+.control-buttons:hover {
+  cursor: pointer;
+}
+.control-buttons {
+  font-family: "PressStart2P", sans-serif;
+  width: 80px;
+  height: 25px;
+  border: none;
+  background-color: rgb(48, 56, 158);
+  color: white;
+  outline: none;
+  margin-left: 2vw;
+}
+.button-container {
+  width: 50%;
+  text-align: center;
+  margin-top: -5%;
+}
 
 @keyframes colours {
   0% {
