@@ -44,6 +44,11 @@ body {
   border: solid black 4px;
   box-sizing: border-box;
   border-radius: 10px;
+  box-shadow: inset -2px -2px 4px rgba(0,0,0,.5);
+  background-image: -webkit-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+  background-image: -moz-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+  background-image: -o-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+  background-image: -ms-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
 }
 
 .pac-dot {
@@ -51,6 +56,11 @@ body {
   border: solid black 7px;
   box-sizing: border-box;
   border-radius: 10px;
+  box-shadow: inset -1px -1px 3px rgba(0,0,0,.5);
+  background-image: -webkit-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
+  background-image: -moz-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
+  background-image: -o-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
+  background-image: -ms-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
 }
 
 .blinky {
@@ -70,14 +80,26 @@ body {
 }
 
 .ghost {
-  border: 0px;
-  border-radius: 0px;
+  border-top-left-radius:70px;
+  border-top-right-radius:70px;
+  box-shadow: inset -5px -5px 10px rgba(0,0,0,.5);
+  background-image: -webkit-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
+  background-image: -moz-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
+  background-image: -o-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
+  background-image: -ms-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
 }
 
+
 .scared-ghost {
-  background-color: purple;
-  border: 0px;
-  border-radius: 0px;
+  background-color: rgba(128,0,125,.3);
+  border-top-left-radius:70px;
+  border-top-right-radius:70px;
+  box-shadow: inset -5px -5px 10px rgba(0,0,0,.5);
+  background-image: -webkit-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+  background-image: -moz-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+  background-image: -o-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+  background-image: -ms-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+  animation: flash 0.5s infinite;
 }
 
 .wall {
@@ -87,7 +109,13 @@ body {
 .pac-man {
   background-color: rgb(247, 232, 22);
   border-radius: 10px;
+  box-shadow: inset -5px -5px 10px rgba(0,0,0,.5);
+  background-image: -webkit-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
+  background-image: -moz-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
+  background-image: -o-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
+  background-image: -ms-linear-gradient(-45deg, rgba(255,255,220,.2) 0%, transparent 100%);
 }
+
 h2 {
   color: white;
   font-weight: normal;
@@ -189,3 +217,17 @@ h2 {
     opacity: 0;
   }
 }
+
+@keyframes flash {
+  50%{
+    background: rgba(254,184,198,.5);
+    border-radius: 10px;
+    box-shadow: inset -5px -5px 10px rgba(0,0,0,.5);
+    background-image: -webkit-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+    background-image: -moz-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+    background-image: -o-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+    background-image: -ms-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+  }
+
+}
+
