@@ -817,7 +817,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   createBoard();
-
   //create Characters
   //draw pacman onto the board
   let pacmanCurrentIndex = 490;
@@ -835,6 +834,28 @@ document.addEventListener("DOMContentLoaded", () => {
   // console.log(getCoordinates(pacmanCurrentIndex))
 
   // set pacman velocity
+  function playReady() {
+    const readySound = document.getElementById("readySound");
+    readySound.play();
+  }
+  function removeSound() {
+    const readySound = document.getElementById("readySound");
+    readySound.pause();
+    readySound.currentTime = 0;
+  }
+  function pacmanDied() {
+    const dieSound = document.getElementById("pacmanDied");
+    dieSound.play();
+  }
+  function sirenSound() {
+    const siren = document.getElementById("siren");
+    siren.play();
+  }
+  function removeSirenSound() {
+    const siren = document.getElementById("siren");
+    siren.pause();
+    siren.currentTime = 0;
+  }
   function setPacmanVelocity(e) {
     switch (e.keyCode) {
       case 37:
@@ -1050,6 +1071,8 @@ document.addEventListener("DOMContentLoaded", () => {
       !squares[pacmanCurrentIndex].classList.contains("scared-ghost")
     ) {
       ghosts.forEach((ghost) => clearInterval(ghost.timerId));
+      removeSirenSound();
+      pacmanDied();
       document.removeEventListener("keyup", movePacman);
       pacmanVelocity.x = 0;
       pacmanVelocity.y = 0;
@@ -1075,10 +1098,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 3000);
     }
   }
-
+  playReady();
   //start the game when enter is pressed
   function startGame(event) {
     if (event.keyCode === 13) {
+      removeSound();
+      sirenSound();
       document.removeEventListener("keydown", startGame);
       //remove start screen
       document.getElementById("start-screen").style.display = "none";
