@@ -31,6 +31,7 @@ body {
   flex-wrap: wrap;
   width: 560px;
   height: 560px;
+  float: left;
   border: 0.2px solid rgb(1, 17, 17);
 }
 
@@ -38,6 +39,7 @@ body {
   width: 20px;
   height: 20px;
 }
+
 
 .power-pellet {
   background-color: rgb(14, 233, 14);
@@ -88,6 +90,12 @@ body {
   background-color: rgb(247, 232, 22);
   border-radius: 10px;
 }
+.score{
+	position: relative;
+    left: 24%;
+    top: 43vh;
+    width: 0px;
+
 h2 {
   color: white;
   font-weight: normal;
