@@ -247,18 +247,6 @@ body {
   position: relative;
 }
 
-/* .pac-man::before {
-  content: '';
-  background-color: #ffffff;
-  padding: 1px;
-  border-radius: 50%;
-  height: 2px;
-  right: 3px;
-  top: 5px;
-  width: 3px;
-  position: absolute;
-} */
-
 h2 {
   color: white;
   font-weight: normal;
