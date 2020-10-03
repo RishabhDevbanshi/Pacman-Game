@@ -4,7 +4,7 @@ PacmanJs is a Javascript, HTML and CSS based game that enable you to play with t
 
 
 ## How to start :triangular_flag_on_post:
-<img src="https://github.com/bhavesh1129/Pacman-Game/blob/master/PacmanImage.PNG" width="600" height="500">
+<img src="https://github.com/bhavesh1129/Pacman-Game/blob/master/assets/images/PacmanImage.PNG" width="600" height="500">
 
 ## Installation/Execute :beginner:
 
