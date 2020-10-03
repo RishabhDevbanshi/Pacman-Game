@@ -823,20 +823,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // play audio when game starts
   function playGameStartsAudio() {
-    console.log('play game start audio');
     gameStartsAudio.currentTime = 0;
     gameStartsAudio.play();
   }
 
   //play audio when game ends
   function playGameEndAudio() {
-    console.log('play game end audio');
     gameOverAudio.currentTime = 0;
     gameOverAudio.play();
   }
 
   function playPacManEatAudio() {
-    console.log('play pac man audio eat');
     pacmanEatsAudio.currentTime = 0;
     pacmanEatsAudio.play();
   }
