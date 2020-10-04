@@ -790,8 +790,8 @@ document.addEventListener("DOMContentLoaded", () => {
     1,
   ];
   // 0 - pac-dots
-  // 1 - wall
-  // 2 - ghost-lair
+  // 1 - wl
+  // 2 - ghost-lairal
   // 3 - power-pellet
   // 4 - empty
 
@@ -835,51 +835,50 @@ document.addEventListener("DOMContentLoaded", () => {
   // console.log(getCoordinates(pacmanCurrentIndex))
 
   // set pacman velocity
-  function setPacmanVelocity(e) {
-    switch (e.keyCode) {
-      case 37:
-        if (
-          pacmanCurrentIndex % width !== 0 &&
-          !squares[pacmanCurrentIndex - 1].classList.contains("wall") &&
-          !squares[pacmanCurrentIndex - 1].classList.contains("ghost-lair")
-        ) {
-          pacmanVelocity.y = 0;
-          pacmanVelocity.x = 1;
-        }
-        break;
-      case 38:
-        if (
-          pacmanCurrentIndex - width >= 0 &&
-          !squares[pacmanCurrentIndex - width].classList.contains("wall") &&
-          !squares[pacmanCurrentIndex - width].classList.contains("ghost-lair")
-        ) {
-          pacmanVelocity.y = 0;
-          pacmanVelocity.x = -1;
-        }
-        break;
-      case 39:
-        if (
-          pacmanCurrentIndex % width < width - 1 &&
-          !squares[pacmanCurrentIndex + 1].classList.contains("wall") &&
-          !squares[pacmanCurrentIndex + 1].classList.contains("ghost-lair")
-        ) {
-          pacmanVelocity.y = 1;
-          pacmanVelocity.x = 0;
-        }
-        break;
-      case 40:
-        if (
-          pacmanCurrentIndex + width < width * width &&
-          !squares[pacmanCurrentIndex + width].classList.contains("wall") &&
-          !squares[pacmanCurrentIndex + width].classList.contains("ghost-lair")
-        ) {
-          pacmanVelocity.y = -1;
-          pacmanVelocity.x = 0;
-        }
-        break;
+  //changed some parameters and if / else conditions
+  function setPacmanVelocity(key, button) {
+    let keyPressed = key;
+    let buttonPressed = button;
+
+    //check wich key or button got pressed
+    if ( //left
+      (keyPressed == 37 || buttonPressed == "left") &&
+      pacmanCurrentIndex % width !== 0 &&
+      !squares[pacmanCurrentIndex - 1].classList.contains("wall") &&
+      !squares[pacmanCurrentIndex - 1].classList.contains("ghost-lair")
+    ) {
+      pacmanVelocity.y = 0;
+      pacmanVelocity.x = 1;
+    }
+    else if ( //up
+      (keyPressed == 38 || buttonPressed == "up") &&
+      pacmanCurrentIndex - width >= 0 &&
+      !squares[pacmanCurrentIndex - width].classList.contains("wall") &&
+      !squares[pacmanCurrentIndex - width].classList.contains("ghost-lair")
+    ) {
+      pacmanVelocity.y = 0;
+      pacmanVelocity.x = -1;
+    }
+    else if ( //right
+      (keyPressed == 39 || buttonPressed == "right") &&
+      pacmanCurrentIndex % width < width - 1 &&
+      !squares[pacmanCurrentIndex + 1].classList.contains("wall") &&
+      !squares[pacmanCurrentIndex + 1].classList.contains("ghost-lair")
+    ) {
+      pacmanVelocity.y = 1;
+      pacmanVelocity.x = 0;
+    }
+    else if ( //down
+      (keyPressed == 40 || buttonPressed == "down") &&
+      pacmanCurrentIndex + width < width * width &&
+      !squares[pacmanCurrentIndex + width].classList.contains("wall") &&
+      !squares[pacmanCurrentIndex + width].classList.contains("ghost-lair")
+    ) {
+      pacmanVelocity.y = -1;
+      pacmanVelocity.x = 0;
     }
     checkForGameOver();
-    console.log(pacmanVelocity, e.keyCode);
+    //console.log(pacmanVelocity, e.keyCode);
   }
 
   //move pacman
@@ -1082,9 +1081,20 @@ document.addEventListener("DOMContentLoaded", () => {
       document.removeEventListener("keydown", startGame);
       //remove start screen
       document.getElementById("start-screen").style.display = "none";
-      //set pacman velocity and enable movement
-      document.addEventListener("keyup", setPacmanVelocity);
+      //check if the moviment is being made by the pad
+
+      //set pacman velocity
+      //get key pressed
+      document.addEventListener("keyup", (event) => { setPacmanVelocity(event.keyCode, "") });
+
+      //get on-screen button pressed
+      document.querySelectorAll(".pad-button").forEach(button => {
+        button.onclick = function (e) {
+          setPacmanVelocity(0, this.id);
+        }
+      });
       movePacman();
+
       // move the Ghosts randomly
       ghosts.forEach((ghost) => moveGhost(ghost));
     }
