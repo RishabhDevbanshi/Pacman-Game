@@ -85,8 +85,43 @@ body {
 }
 
 .pac-man {
-  background-color: rgb(247, 232, 22);
-  border-radius: 10px;
+    position: relative;
+    transition: transform 0.1s;
+}
+/*pac-man will face right*/
+.pac-man.right {
+    transform: rotate(0deg);
+}
+/*pac-man will face left*/
+.pac-man.left {
+    transform: rotate(180deg);
+}
+/*pac-man will face up*/
+.pac-man.up {
+    transform: rotate(-90deg);
+}
+/*pac-man will face down*/
+.pac-man.down {
+    transform: rotate(90deg);
+}
+
+.pac-man::before, .pac-man::after {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    border-radius: 50%;
+    border: solid 10px yellow;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    animation: mouth-top 0.5s ease infinite;
+}
+.pac-man::after {
+    border-color: yellow;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    animation: mouth-bottom 0.5s ease infinite;
 }
 h2 {
   color: white;
@@ -188,4 +223,16 @@ h2 {
   99% {
     opacity: 0;
   }
+}
+/*animation for pac-man's top mouth*/
+@keyframes mouth-top {
+    50% {
+        transform: rotate(44deg);
+    }
+}
+/*animation for pac-man's bottom mouth*/
+@keyframes mouth-bottom {
+    50% {
+        transform: rotate(-44deg);
+    }
 }
