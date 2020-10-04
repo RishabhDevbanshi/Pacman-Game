@@ -1,0 +1,40 @@
+#pad-controller {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+}
+
+.pad-button {
+    color: rgb(1, 17, 17);
+    text-decoration: none;
+    user-select: none;
+    border-radius: 100%;
+}
+
+.pad-button h4 {
+    padding: 10px;
+}
+
+#up {
+    background-color: #ecdb33;
+}
+
+#down {
+    background-color: #3cdb4e;
+}
+
+#left {
+    background-color: #40ccd0;
+    margin-right: 15px;
+}
+
+#right {
+    background-color: #d04242;
+    margin-left: 15px;
+}
+
+.left-right {
+    display: flex;
+    flex-direction: row;
+}
