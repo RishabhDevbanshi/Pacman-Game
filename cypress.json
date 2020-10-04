@@ -1,0 +1,5 @@
+{
+    "env": {
+        "baseUrl": "localhost:5000"
+    }
+}
