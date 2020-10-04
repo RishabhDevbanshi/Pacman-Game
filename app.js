@@ -826,7 +826,7 @@ document.addEventListener("DOMContentLoaded", () => {
     y: 0,
   };
   const pacmanSpeed = 200;
-  squares[pacmanCurrentIndex].classList.add("pac-man");
+
   //get the coordinates of pacman on the grid with X and Y axis
   // function getCoordinates(index) {
   //   return [index % width, Math.floor(index / width)]
@@ -885,6 +885,8 @@ document.addEventListener("DOMContentLoaded", () => {
   //move pacman
   function movePacman() {
     squares[pacmanCurrentIndex].classList.remove("pac-man");
+    let directionClassToAdd = 'right'
+    let directionClassesToRemove = []
     setInterval(() => {
       if (pacmanVelocity.x === 1 && pacmanVelocity.y == 0) {
         if (
@@ -895,9 +897,13 @@ document.addEventListener("DOMContentLoaded", () => {
           squares[pacmanCurrentIndex].classList.remove("pac-man");
 
           pacmanCurrentIndex -= 1;
+          directionClassToAdd = 'left'
+          directionClassesToRemove = ['up', 'down', 'right']
         }
         if (squares[pacmanCurrentIndex - 1] === squares[363]) {
           pacmanCurrentIndex = 391;
+          directionClassToAdd = 'left'
+          directionClassesToRemove = ['up', 'down', 'right']
         }
       }
       if (pacmanVelocity.x === -1 && pacmanVelocity.y == 0) {
@@ -909,6 +915,8 @@ document.addEventListener("DOMContentLoaded", () => {
           squares[pacmanCurrentIndex].classList.remove("pac-man");
 
           pacmanCurrentIndex -= width;
+          directionClassToAdd = 'up'
+          directionClassesToRemove = ['left', 'down', 'right']
         }
       }
       if (pacmanVelocity.x === 0 && pacmanVelocity.y == 1) {
@@ -920,9 +928,13 @@ document.addEventListener("DOMContentLoaded", () => {
           squares[pacmanCurrentIndex].classList.remove("pac-man");
 
           pacmanCurrentIndex += 1;
+          directionClassToAdd = 'right'
+          directionClassesToRemove = ['left', 'down', 'up']
         }
         if (squares[pacmanCurrentIndex + 1] === squares[392]) {
           pacmanCurrentIndex = 364;
+          directionClassToAdd = 'right'
+          directionClassesToRemove = ['left', 'down', 'up']
         }
       }
       if (pacmanVelocity.x === 0 && pacmanVelocity.y == -1) {
@@ -933,10 +945,15 @@ document.addEventListener("DOMContentLoaded", () => {
         ) {
           squares[pacmanCurrentIndex].classList.remove("pac-man");
           pacmanCurrentIndex += width;
+          directionClassToAdd = 'down'
+          directionClassesToRemove = ['left', 'right', 'up']
         }
       }
 
       squares[pacmanCurrentIndex].classList.add("pac-man");
+      // add and remove certain classes once the pac-man changes the facing direction
+      squares[pacmanCurrentIndex].classList.add(directionClassToAdd)
+      squares[pacmanCurrentIndex].classList.remove(...directionClassesToRemove)
       pacDotEaten();
       powerPelletEaten();
     }, pacmanSpeed);
@@ -1079,6 +1096,8 @@ document.addEventListener("DOMContentLoaded", () => {
   //start the game when enter is pressed
   function startGame(event) {
     if (event.keyCode === 13) {
+      // add the "pac-man" class only when the Board is visible
+      squares[pacmanCurrentIndex].classList.add("pac-man");
       document.removeEventListener("keydown", startGame);
       //remove start screen
       document.getElementById("start-screen").style.display = "none";
