@@ -836,7 +836,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // set pacman velocity
   function setPacmanVelocity(e) {
-    switch (e.keyCode) {
+    let directionKeycode;
+    if( typeof(e) == "object"){
+      directionKeycode = e.keyCode;
+    }else{
+      directionKeycode = e;
+    }
+    switch (directionKeycode) {
       case 37:
         if (
           pacmanCurrentIndex % width !== 0 &&
@@ -879,7 +885,7 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
     }
     checkForGameOver();
-    console.log(pacmanVelocity, e.keyCode);
+    console.log(pacmanVelocity, directionKeycode);
   }
 
   //move pacman
@@ -1078,12 +1084,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //start the game when enter is pressed
   function startGame(event) {
+    let upButton = document.getElementById("button-up");
+    let rightButton = document.getElementById("button-right");
+    let downButton = document.getElementById("button-down");
+    let leftButton = document.getElementById("button-left"); 
     if (event.keyCode === 13) {
       document.removeEventListener("keydown", startGame);
       //remove start screen
       document.getElementById("start-screen").style.display = "none";
       //set pacman velocity and enable movement
       document.addEventListener("keyup", setPacmanVelocity);
+      // move pacman with on-screen buttons
+      leftButton.addEventListener('click', function(){
+        setPacmanVelocity(37);
+      });
+      upButton.addEventListener('click', function(){
+        setPacmanVelocity(38);
+      });
+      rightButton.addEventListener('click', function(){
+        setPacmanVelocity(39);
+      });
+      downButton.addEventListener('click', function(){
+        setPacmanVelocity(40);
+      });
       movePacman();
       // move the Ghosts randomly
       ghosts.forEach((ghost) => moveGhost(ghost));
