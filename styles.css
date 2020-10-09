@@ -154,6 +154,84 @@ h2 {
   display: flex;
 }
 
+/* list animation - hariramjp777 */
+.lists {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.lists ul {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.lists ul li {
+  list-style: none;
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff33;
+  border-radius: 2px;
+  position: absolute;
+  bottom: -5%;
+  transform: translateX(-3rem);
+  opacity: 1;
+  animation: list-animation 7s infinite linear;
+}
+
+.lists ul li:nth-child(1) {
+  left: 5%;
+  background-color: red;
+  animation-delay: 0.5s;
+}
+
+.lists ul li:nth-child(2) {
+  left: 15%;
+  animation-delay: 1s;
+}
+
+.lists ul li:nth-child(3) {
+  left: 25%;
+  background-color: yellow;
+  animation-delay: 4s;
+}
+
+.lists ul li:nth-child(4) {
+  left: 25%;
+  background-color: #0fd6cc;
+  animation-delay: 6s;
+}
+
+.lists ul li:nth-child(5) {
+  left: 75%;
+  background-color: #0fd6cc;
+  animation-delay: 0.7s;
+}
+
+.lists ul li:nth-child(6) {
+  left: 85%;
+  background-color: #dd1282;
+  animation-delay: 1.2s;
+}
+
+.lists ul li:nth-child(7) {
+  left: 95%;
+  background-color: #0bf117;
+  animation-delay: 4.2s;
+}
+
+.lists ul li:nth-child(8) {
+  left: 95%;
+  animation-delay: 6.2s;
+}
+
 @keyframes colours {
   0% {
     color: yellow;
@@ -186,6 +264,14 @@ h2 {
     opacity: 0;
   }
   99% {
+    opacity: 0;
+  }
+}
+
+@keyframes list-animation {
+  100% {
+    bottom: 100%;
+    transform: translateX(2rem);
     opacity: 0;
   }
 }
