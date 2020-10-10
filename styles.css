@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "PressStart2P";
-  src: url("./fonts/PressStart2P.ttf");
+  font-family: 'PressStart2P';
+  src: url('./fonts/PressStart2P.ttf');
 }
 
 * {
@@ -9,7 +9,7 @@
 }
 
 body {
-  font-family: "PressStart2P", sans-serif;
+  font-family: 'PressStart2P', sans-serif;
   background-color: black;
   display: flex;
   flex-direction: column;
@@ -41,16 +41,16 @@ body {
 
 .power-pellet {
   background-color: rgb(14, 233, 14);
-  border: solid black 4px;
+  border: solid rgba(0, 0, 0, 1) 4px;
   box-sizing: border-box;
   border-radius: 10px;
 }
 
 .pac-dot {
   background-color: yellow;
-  border: solid black 7px;
+  border: solid rgba(0, 0, 0, 1) 7px;
   box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: 50%;
 }
 
 .blinky {
@@ -91,6 +91,12 @@ body {
 h2 {
   color: white;
   font-weight: normal;
+  text-align: center;
+}
+
+label {
+  color: white;
+  font-weight: lighter;
   text-align: center;
 }
 
