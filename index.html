@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" charset="utf-8"></script>
   </head>
-  <body>
+  <body id="pacManBody" class="bodyColor">
     <div class="overlay-screen" id="start-screen">
       <h1>PACMAN</h1>
       <h2 id="start-msg">Press ENTER to start</h2>
@@ -15,6 +15,13 @@
     <div class="game-container">
       <div class="grid"></div>
       <h2>Score:<span id="score">0</span></h2>
+      <label for="colorChanger">Choose a color:</label>
+      <select id="colorChanger" name="cars">
+        <option value="black">Black</option>
+        <option value="#808080">Grey</option>
+        <option value="#800000">Maroon</option>
+        <option value="#006400">Green</option>
+      </select>
     </div>
     <div class="overlay-screen" id="game-over-screen">
       <span>GAME OVER!</span>
