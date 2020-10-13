@@ -44,6 +44,19 @@ body {
   border: solid black 4px;
   box-sizing: border-box;
   border-radius: 10px;
+  animation: blink 0.5s ease infinite;
+}
+
+@keyframes blink{
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 100;
+  }
+  100%{
+    opacity: 0;
+  }
 }
 
 .pac-dot {
@@ -71,13 +84,14 @@ body {
 
 .ghost {
   border: 0px;
-  border-radius: 0px;
+  border-radius: 50% 50% 0% 0%;
 }
 
 .scared-ghost {
-  background-color: purple;
+  background-color: rgb(202, 0, 202);
   border: 0px;
-  border-radius: 0px;
+  border-radius: 50% 50% 0% 0%;
+  animation: blink 0.1s ease infinite;
 }
 
 .wall {
@@ -88,11 +102,15 @@ body {
   background-color: rgb(247, 232, 22);
   border-radius: 10px;
 }
-h2 {
+
+h2{
+  position: relative;
   color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  left: 2vw;
   font-weight: normal;
   text-align: center;
-}
+
 
 .low-score {
   color: red;
@@ -188,4 +206,47 @@ h2 {
   99% {
     opacity: 0;
   }
+}
+
+#controlpannel{
+  position: relative;
+  display: grid; 
+  bottom: 2vh;
+  height: 10vh;
+  width: 16vw;
+  grid-template-rows: 10fr 10fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-left:5vw ;
+}
+
+.dirButton{
+  margin: 0.5vh;
+  opacity: 0.6;
+  background-size: 100% 100%;
+  width:4.2vw;
+  height:4.2vw;
+}
+
+.dirButton:hover{
+  opacity: 1;
+}
+
+#up{
+  background-image:url("buttonimages/up.png") ;
+  grid-column: 2 / 3;
+}
+#down{
+  background-image:url("buttonimages/down.png") ;
+  grid-column: 2 / 3;
+  grid-row: 2/3;
+}
+#left{
+  background-image:url("buttonimages/left.png") ;
+  grid-column: 1 / 2;
+  grid-row: 2/3;
+}
+#right{
+  background-image:url("buttonimages/right.png") ;
+  grid-column: 3 / 4;
+  grid-row: 2/3;
 }

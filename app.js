@@ -835,6 +835,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // console.log(getCoordinates(pacmanCurrentIndex))
 
   // set pacman velocity
+
+  function setVelocity(e){
+    setPacmanVelocity(e);
+    setPacmanVelocityByOnScreenButton();
+  }
   function setPacmanVelocity(e) {
     switch (e.keyCode) {
       case 37:
@@ -878,6 +883,53 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         break;
     }
+    checkForGameOver();
+    console.log(pacmanVelocity, e.keyCode);
+  }
+
+  function setPacmanVelocityByOnScreenButton(e) {
+    
+    document.getElementById("left").onclick=function(){
+          if (
+          pacmanCurrentIndex % width !== 0 &&
+          !squares[pacmanCurrentIndex - 1].classList.contains("wall") &&
+          !squares[pacmanCurrentIndex - 1].classList.contains("ghost-lair")
+        ) {
+          pacmanVelocity.y = 0;
+          pacmanVelocity.x = 1;
+        }}
+        
+        document.getElementById("up").onclick=function(){
+        if (
+          pacmanCurrentIndex - width >= 0 &&
+          !squares[pacmanCurrentIndex - width].classList.contains("wall") &&
+          !squares[pacmanCurrentIndex - width].classList.contains("ghost-lair")
+        ) {
+          pacmanVelocity.y = 0;
+          pacmanVelocity.x = -1;
+        }}
+        
+        document.getElementById("right").onclick=function(){
+        if (
+          pacmanCurrentIndex % width < width - 1 &&
+          !squares[pacmanCurrentIndex + 1].classList.contains("wall") &&
+          !squares[pacmanCurrentIndex + 1].classList.contains("ghost-lair")
+        ) {
+          pacmanVelocity.y = 1;
+          pacmanVelocity.x = 0;
+        }}
+        
+        document.getElementById("down").onclick=function(){
+        if (
+          pacmanCurrentIndex + width < width * width &&
+          !squares[pacmanCurrentIndex + width].classList.contains("wall") &&
+          !squares[pacmanCurrentIndex + width].classList.contains("ghost-lair")
+        ) {
+          pacmanVelocity.y = -1;
+          pacmanVelocity.x = 0;
+        }}
+        
+    
     checkForGameOver();
     console.log(pacmanVelocity, e.keyCode);
   }
@@ -941,6 +993,8 @@ document.addEventListener("DOMContentLoaded", () => {
       powerPelletEaten();
     }, pacmanSpeed);
   }
+  document.addEventListener("keyup", setVelocity);
+  movePacman();
 
   // what happens when you eat a pac-dot
   function pacDotEaten() {
