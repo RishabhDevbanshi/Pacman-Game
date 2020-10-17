@@ -5,8 +5,15 @@
     <title>PacMan</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" charset="utf-8"></script>
+    <script src="./particles.min.js"></script>
   </head>
-  <body>
+  <body >
+    <div id='particles-js'></div>
+    <script>
+      particlesJS.load('particles-js','particles.json',function() {
+          console.log('particles');
+      })
+    </script>
     <div class="overlay-screen" id="start-screen">
       <h1>PACMAN</h1>
       <h2 id="start-msg">Press ENTER to start</h2>
