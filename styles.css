@@ -10,11 +10,18 @@
 
 body {
   font-family: "PressStart2P", sans-serif;
-  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#particles-js{
+  height: 100vh;
+  width: 100vw;
+  background: rgb(22, 22, 22);
+  position: absolute;
+  z-index: -2;
 }
 
 .game-container {
