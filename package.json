@@ -1,0 +1,23 @@
+{
+  "name": "pacman-game",
+  "version": "1.0.0",
+  "description": "PacmanJs is a Javascript, HTML and CSS based game that enable you to play with the most charismatic 80's character ever created.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass --w sass/styles.sass css/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irwanphan/Pacman-Game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/irwanphan/Pacman-Game/issues"
+  },
+  "homepage": "https://github.com/irwanphan/Pacman-Game#readme",
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  }
+}
